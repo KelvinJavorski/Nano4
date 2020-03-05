@@ -22,7 +22,7 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
-       
+        print("Quintop")
     }
     
     func touchMoved(toPoint pos : CGPoint) {
