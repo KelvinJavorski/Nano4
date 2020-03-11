@@ -10,23 +10,28 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    var bubble: Bubble!
+    var bubbles: [Bubble] = [Bubble]()
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        for _ in 0...5{
-            bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
-            bubble.node.name = "bubble"
-            let randomX = CGFloat.random(in: -350...350)
-            let randomY = CGFloat.random(in: -640...640)
-            bubble.node.position = CGPoint(x: randomX, y: randomY)
-            // Get label node from scene and store it for use later
-            self.addChild(bubble.node)
-        }
-        
+        createBubble()
     }
+    
+    func createBubble(){
+        let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
+        bubble.node.name = "bubble"
+        
+        //Teste//
+        let randomX = CGFloat.random(in: -350...350)
+        let randomY = CGFloat.random(in: -640...640)
+        bubble.node.position = CGPoint(x: randomX, y: randomY)
+        
+        bubbles.append(bubble)
+        self.addChild(bubble.node)
+    }
+    
     func drag(node : SKSpriteNode){}
     
     func touchDown(atPoint pos : CGPoint) {
@@ -34,7 +39,7 @@ class GameScene: SKScene {
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
             if self.handle.name == "bubble"{
-                self.drag(node: handle)
+//                self.drag(node: handle)
             }
         }
     }
@@ -65,7 +70,7 @@ class GameScene: SKScene {
                 let node = atPoint(location)
                 if node.name == "bubble" {
                     let skNode = node as? SKSpriteNode
-                    skNode?.texture = SKTexture(imageNamed: "bubbleExp")
+                    bubbles[0].explodeBubble()
     //                node.removeFromParent()
                 }
             }
