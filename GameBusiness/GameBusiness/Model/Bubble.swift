@@ -10,13 +10,17 @@ import Foundation
 import SpriteKit
 
 class Bubble : GameObject {
-//    override init(isClicked: Bool?) {
-//        super.init(scene: GameScene, node: SKSpriteNode(imageNamed: "coin"))
-//        self.isClicked = isClicked
-//
-//    }
     
-    var textures : [SKTexture] = []
+    var textures : [SKTexture] =   [SKTexture(imageNamed: "Bolha_Frame_1"),
+                                    SKTexture(imageNamed: "Bolha_Frame_2"),
+                                    SKTexture(imageNamed: "Bolha_Frame_3"),
+                                    SKTexture(imageNamed: "Bolha_Frame_4"),
+                                    SKTexture(imageNamed: "Bolha_Frame_5"),
+                                    SKTexture(imageNamed: "Bolha_Frame_6"),
+                                    SKTexture(imageNamed: "Bolha_Frame_7"),
+                                    SKTexture(imageNamed: "Bolha_Frame_8"),
+                                    SKTexture(imageNamed: "Bolha_Frame_9"),
+    ]
     
     override func configurePhysics(){
         if let body = self.node.physicsBody{
@@ -27,8 +31,8 @@ class Bubble : GameObject {
     }
     
     func explodeBubble(){
-        
-        let action = SKAction.animate(with: textures, timePerFrame: <#T##TimeInterval#>)
+        let action = SKAction.animate(with: textures, timePerFrame: 0.03)
+        self.node.run(action)
     }
     
 //    var isClicked : Bool!
