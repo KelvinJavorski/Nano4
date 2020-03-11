@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4256E789241972CF00BC72D7 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256E787241972CF00BC72D7 /* Phase.swift */; };
+		4256E78A241972CF00BC72D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256E788241972CF00BC72D7 /* Model.swift */; };
 		B6061B9324195C04002DC707 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6061B9224195C04002DC707 /* SnowParticle.sks */; };
 		B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7A5240ED6EC00E99DB9 /* AppDelegate.swift */; };
 		B67FA7A8240ED6EC00E99DB9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B67FA7A7240ED6EC00E99DB9 /* GameScene.sks */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4256E787241972CF00BC72D7 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		4256E788241972CF00BC72D7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B6061B9224195C04002DC707 /* SnowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle.sks; sourceTree = "<group>"; };
 		B67FA7A2240ED6EC00E99DB9 /* GameBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBusiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67FA7A5240ED6EC00E99DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		B6061B9424195DF0002DC707 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4256E788241972CF00BC72D7 /* Model.swift */,
+				4256E787241972CF00BC72D7 /* Phase.swift */,
 				B67FA7C92412DAFD00E99DB9 /* GameObject.swift */,
 				B67FA7C52412D6DA00E99DB9 /* Bubble.swift */,
 			);
@@ -185,10 +191,12 @@
 			files = (
 				B67FA7AC240ED6EC00E99DB9 /* GameScene.swift in Sources */,
 				B67FA7AE240ED6EC00E99DB9 /* GameViewController.swift in Sources */,
+				4256E789241972CF00BC72D7 /* Phase.swift in Sources */,
 				B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */,
 				B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */,
 				B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */,
 				B67FA7C62412D6DA00E99DB9 /* Bubble.swift in Sources */,
+				4256E78A241972CF00BC72D7 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
