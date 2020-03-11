@@ -9,12 +9,14 @@
 import Foundation
 import SpriteKit
 
-class Buttons : GameObject {
+class Bubble : GameObject {
 //    override init(isClicked: Bool?) {
 //        super.init(scene: GameScene, node: SKSpriteNode(imageNamed: "coin"))
 //        self.isClicked = isClicked
 //
 //    }
+    
+    var textures : [SKTexture] = []
     
     override func configurePhysics(){
         if let body = self.node.physicsBody{
@@ -22,6 +24,11 @@ class Buttons : GameObject {
             body.collisionBitMask = ContactMask.wall.rawValue
             body.contactTestBitMask = ContactMask.button.rawValue
         }
+    }
+    
+    func explodeBubble(){
+        
+        let action = SKAction.animate(with: textures, timePerFrame: <#T##TimeInterval#>)
     }
     
 //    var isClicked : Bool!

@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class GameObject {
-    internal init(scene: GameScene?, node: SKSpriteNode?) {
+    internal init(scene: GameScene!, node: SKSpriteNode!) {
         self.scene = scene
         self.node = node
     }

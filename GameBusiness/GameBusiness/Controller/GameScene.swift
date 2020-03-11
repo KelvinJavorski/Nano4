@@ -10,16 +10,21 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    var button: Buttons!
+    var bubble: Bubble!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        button = Buttons(scene: self, node: SKSpriteNode(imageNamed: "coin"))
-        button.node.name = "Buttons"
-        // Get label node from scene and store it for use later
-        self.addChild(button)
+        for _ in 0...5{
+            bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
+            bubble.node.name = "bubble"
+            let randomX = CGFloat.random(in: -350...350)
+            let randomY = CGFloat.random(in: -640...640)
+            bubble.node.position = CGPoint(x: randomX, y: randomY)
+            // Get label node from scene and store it for use later
+            self.addChild(bubble.node)
+        }
         
     }
     func drag(node : SKSpriteNode){}
@@ -28,7 +33,7 @@ class GameScene: SKScene {
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
-            if self.handle.name == "Buttons"{
+            if self.handle.name == "bubble"{
                 self.drag(node: handle)
             }
         }
@@ -36,18 +41,18 @@ class GameScene: SKScene {
     
     func touchMoved(toPoint pos : CGPoint) {
         if handle != nil{
-            if self.handle.name == "Buttons"{
+            if self.handle.name == "bubble"{
                 self.handle.position = pos
             }
         }
     }
     
     func touchUp(atPoint pos : CGPoint) {
-     
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for t in touches { self.touchDown(atPoint: t.location(in: self))}
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,7 +60,15 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        if let touch = touches.first {
+                let location = touch.location(in: self)
+                let node = atPoint(location)
+                if node.name == "bubble" {
+                    let skNode = node as? SKSpriteNode
+                    skNode?.texture = SKTexture(imageNamed: "bubbleExp")
+    //                node.removeFromParent()
+                }
+            }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
