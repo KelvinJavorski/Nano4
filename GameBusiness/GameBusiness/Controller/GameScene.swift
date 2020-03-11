@@ -16,7 +16,9 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        createBubble()
+        for _ in 0...5{
+            createBubble()
+        }
     }
     
     func createBubble(){
@@ -32,7 +34,14 @@ class GameScene: SKScene {
         self.addChild(bubble.node)
     }
     
-    func drag(node : SKSpriteNode){}
+    func findBubbleNode(_ location : CGPoint) -> Int {
+        for (index, bubble) in bubbles.enumerated(){
+            if bubble.node.contains(location){
+                return index
+            }
+        }
+        return -1
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         let nodeArray = self.nodes(at: pos)
@@ -69,9 +78,13 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    let skNode = node as? SKSpriteNode
-                    bubbles[0].explodeBubble()
-    //                node.removeFromParent()
+                    let index = findBubbleNode(location)
+                    if (index != -1){
+                        bubbles[index].explodeBubble()
+                        bubbles.remove(at: index)
+                    }
+                    
+//                    node.removeFromParent()
                 }
             }
     }
