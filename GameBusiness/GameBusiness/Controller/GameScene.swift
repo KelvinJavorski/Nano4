@@ -11,19 +11,19 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles: [Bubble] = [Bubble]()
-    var event: Event!
+    var tunnel: Event!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        for _ in 0...5{
+        for _ in 0...1{
             createBubble()
         }
         let initPos = CGPoint(x: 0, y: 0)
         let finalPos = CGPoint(x: 50, y: 50)
-        event = Event(scene: self, initialPos: initPos, finalPos: finalPos, height: 10.0)
-        event.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+        tunnel = Event(scene: self, initialPos: initPos, finalPos: finalPos, height: 10.0)
+        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
     }
     
     
@@ -96,8 +96,10 @@ class GameScene: SKScene {
                 if node.name == "bubble" {
                     let index = findBubbleNode(location)
                     if (index != -1){
-                        bubbles[index].explodeBubble()
-                        bubbles.remove(at: index)
+//                        bubbles[index].explodeBubble()
+//                        bubbles.remove(at: index)
+                        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+                        
                     }
                     
 //                    node.removeFromParent()

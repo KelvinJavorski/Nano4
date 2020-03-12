@@ -24,15 +24,23 @@ class Event{
     var height: CGFloat!
     
     func createBody(initBubble: Bubble, finalBubble: Bubble){
+        
         self.initialPos = initBubble.node.position
         self.finalPos = finalBubble.node.position
-        let shape = SKShapeNode()
-        shape.path = UIBezierPath(roundedRect: CGRect(x: self.initialPos.x, y: self.initialPos.y, width: 150, height: 150), cornerRadius: 1).cgPath
-        shape.position = CGPoint(x: 0, y: 0)
-        shape.fillColor = UIColor.red
-        shape.strokeColor = UIColor.blue
-        shape.lineWidth = 10
-        self.scene.addChild(shape)
+        let distance = finalPos - initialPos
+        let angle = distance.y / distance.x
+        
+        
+        print("angle =  \(1/(angle))")
+        
+        
+//        let shape = SKShapeNode()
+////        shape.path = UIBezierPath(arcCenter: initialPos, radius: CGFloat(1), startAngle: <#T##CGFloat#>, endAngle: <#T##CGFloat#>, clockwise: <#T##Bool#>)
+//        shape.position = CGPoint(x: 0, y: 0)
+//        shape.fillColor = UIColor.red
+//        shape.strokeColor = UIColor.blue
+//        shape.lineWidth = 10
+//        self.scene.addChild(shape)
     }
     
     
