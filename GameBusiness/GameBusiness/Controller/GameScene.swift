@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles: [Bubble] = [Bubble]()
+    var event: Event!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -19,6 +20,21 @@ class GameScene: SKScene {
         for _ in 0...5{
             createBubble()
         }
+        let initPos = CGPoint(x: 0, y: 0)
+        let finalPos = CGPoint(x: 50, y: 50)
+        event = Event(scene: self, initialPos: initPos, finalPos: finalPos, height: 10.0)
+        event.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+    }
+    
+    
+    func teste(){
+        let shape = SKShapeNode()
+        shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
+        shape.position = CGPoint(x: frame.midX, y: frame.midY)
+        shape.fillColor = UIColor.red
+        shape.strokeColor = UIColor.blue
+        shape.lineWidth = 10
+        addChild(shape)
     }
     
     func createBubble(){
