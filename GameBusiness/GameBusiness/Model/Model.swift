@@ -340,7 +340,7 @@ class Model {
             Step(TimeInterval(2.0)),
             Step(s0: CGPoint(x: -80.0, y: -70.0 ),
                  s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000)),
-            Step(TimeInterval(2.0)),
+            Step(TimeInterval(2.0))
         ]
 
             //,        Phase(music: "Try.mp3", steps:
