@@ -11,12 +11,30 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles: [Bubble] = [Bubble]()
+    var tunnel: Event!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        createBubble()
+        for _ in 0...1{
+            createBubble()
+        }
+        let initPos = CGPoint(x: 0, y: 0)
+        let finalPos = CGPoint(x: 50, y: 50)
+        tunnel = Event(scene: self, initialPos: initPos, finalPos: finalPos, height: 10.0)
+        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+    }
+    
+    
+    func teste(){
+        let shape = SKShapeNode()
+        shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
+        shape.position = CGPoint(x: frame.midX, y: frame.midY)
+        shape.fillColor = UIColor.red
+        shape.strokeColor = UIColor.blue
+        shape.lineWidth = 10
+        addChild(shape)
     }
     
     func createBubble(){
@@ -32,7 +50,14 @@ class GameScene: SKScene {
         self.addChild(bubble.node)
     }
     
-    func drag(node : SKSpriteNode){}
+    func findBubbleNode(_ location : CGPoint) -> Int {
+        for (index, bubble) in bubbles.enumerated(){
+            if bubble.node.contains(location){
+                return index
+            }
+        }
+        return -1
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         let nodeArray = self.nodes(at: pos)
@@ -69,9 +94,15 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    let skNode = node as? SKSpriteNode
-                    bubbles[0].explodeBubble()
-    //                node.removeFromParent()
+                    let index = findBubbleNode(location)
+                    if (index != -1){
+//                        bubbles[index].explodeBubble()
+//                        bubbles.remove(at: index)
+                        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+                        
+                    }
+                    
+//                    node.removeFromParent()
                 }
             }
     }

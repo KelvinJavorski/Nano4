@@ -32,7 +32,13 @@ class Bubble : GameObject {
     
     func explodeBubble(){
         let action = SKAction.animate(with: textures, timePerFrame: 0.03)
-        self.node.run(action)
+        let removeAction = SKAction.removeFromParent()
+        let sequence = SKAction.sequence([action, removeAction])
+        self.node.run(sequence)
+        
+        let resize = SKAction.scale(by: 2, duration: 0.5)
+        self.node.run(resize)
+//        self.node.run(action)
     }
     
 //    var isClicked : Bool!
