@@ -11,30 +11,36 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles: [Bubble] = [Bubble]()
+    var currentPhase : Phase!
     var tunnel: Tunnel!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        for _ in 0...1{
-            createBubble()
-        }
+        initPhase()
         
-        let initBubble = bubbles[0]
-        let finalBubble = bubbles[1]
-        tunnel = Tunnel(scene: self, firstBubble: initBubble, lastBubble: finalBubble, height: 10.0)
-        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
+        
+//        tunnel = Tunnel(scene: self, firstBubble: initBubble, lastBubble: finalBubble)
+//        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
     }
     
-    func createBubble(){
+    func initPhase(){
+        currentPhase = Model.shared.phases[0]
+        for (index, step) in currentPhase.steps.enumerated(){
+            createBubble(position: 10 * step.position)
+            if (index > 0) && (index < currentPhase.steps.count){
+                //Cria um tunnel dá primeira bubble até a segunda
+                tunnel = Tunnel(scene: self, firstBubble: bubbles[index - 1], lastBubble: bubbles[index])
+                tunnel.animateCircle(tunnelDuration: step.duration)
+            }
+        }
+    }
+    
+    func createBubble(position : CGPoint){
         let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
         bubble.node.name = "bubble"
-        
-        //Teste//
-        let randomX = CGFloat.random(in: -350...350)
-        let randomY = CGFloat.random(in: -640...640)
-        bubble.node.position = CGPoint(x: randomX, y: randomY)
+        bubble.node.position = position
         
         bubbles.append(bubble)
         self.addChild(bubble.node)
@@ -59,7 +65,8 @@ class GameScene: SKScene {
         }
     
     func touchDown(atPoint pos : CGPoint) {
-        tunnel.animateCircle()
+//        tunnel.animateCircle()
+        initPhase()
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
