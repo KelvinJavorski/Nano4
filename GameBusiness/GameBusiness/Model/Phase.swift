@@ -26,6 +26,12 @@ class Step {
         self.duration = duration
     }
     
+    internal init(_ duration: TimeInterval) {
+        self.isInterval = true
+        self.duration = duration
+    }
+    
+    var isInterval: Bool = false
     var position: CGPoint!
     var duration: TimeInterval!
 }
