@@ -10,11 +10,12 @@ import Foundation
 import SpriteKit
 
 class Tunnel{
-    internal init(scene: GameScene?, firstBubble: Bubble, lastBubble: Bubble, height: CGFloat?) {
+    internal init(scene: GameScene?, firstBubble: Bubble, lastBubble: Bubble) {
         self.scene = scene
         self.firstBubble = firstBubble
         self.lastBubble = lastBubble
-        self.height = height
+        initialPos = firstBubble.node.position
+        finalPos = lastBubble.node.position
     }
     
     var firstBubble: Bubble
@@ -24,8 +25,8 @@ class Tunnel{
     var node : SKShapeNode = SKShapeNode()
     var initialPos: CGPoint!
     var finalPos: CGPoint!
-    var height: CGFloat!
     var tunnelNode: SKShapeNode!
+    var interval: TimeInterval!
     
     func createTunnel(initBubble: Bubble, finalBubble: Bubble){
         
@@ -55,13 +56,16 @@ class Tunnel{
         return circle
     }
     
-    func animateCircle(){
+    func animateCircle(tunnelDuration : TimeInterval){
         self.circle = createCircle()
         self.scene.addChild(self.circle)
         let reduce = reduceCircle()
-        let move = moveCircleFromNodes()
+        
+        let move = moveCircleFromNodes(duration: tunnelDuration)
         let sequence = SKAction.sequence([reduce, move])
-        self.circle.run(sequence)
+        self.circle.run(sequence, completion: {
+            return
+        })
     }
     
     func reduceCircle() -> SKAction{
@@ -69,10 +73,8 @@ class Tunnel{
         return resizeAction
     }
     
-    func moveCircleFromNodes() -> SKAction{
-        
-        let interval : Double = 1
-        let moveAction = SKAction.move(to: self.lastBubble.node.position, duration: interval)
+    func moveCircleFromNodes(duration : TimeInterval) -> SKAction{
+        let moveAction = SKAction.move(to: self.lastBubble.node.position, duration: duration)
         return moveAction
     }
     
