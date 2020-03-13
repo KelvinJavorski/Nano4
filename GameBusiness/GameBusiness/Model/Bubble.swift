@@ -27,6 +27,7 @@ class Bubble : GameObject {
             body.categoryBitMask = ContactMask.button.rawValue
             body.collisionBitMask = ContactMask.wall.rawValue
             body.contactTestBitMask = ContactMask.button.rawValue
+            self.node.zPosition = 0
         }
     }
     

@@ -11,7 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles: [Bubble] = [Bubble]()
-    var tunnel: Event!
+    var tunnel: Tunnel!
     var handle: SKSpriteNode!
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -20,21 +20,11 @@ class GameScene: SKScene {
         for _ in 0...1{
             createBubble()
         }
-        let initPos = CGPoint(x: 0, y: 0)
-        let finalPos = CGPoint(x: 50, y: 50)
-        tunnel = Event(scene: self, initialPos: initPos, finalPos: finalPos, height: 10.0)
-        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
-    }
-    
-    
-    func teste(){
-        let shape = SKShapeNode()
-        shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
-        shape.position = CGPoint(x: frame.midX, y: frame.midY)
-        shape.fillColor = UIColor.red
-        shape.strokeColor = UIColor.blue
-        shape.lineWidth = 10
-        addChild(shape)
+        
+        let initBubble = bubbles[0]
+        let finalBubble = bubbles[1]
+        tunnel = Tunnel(scene: self, firstBubble: initBubble, lastBubble: finalBubble, height: 10.0)
+        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
     }
     
     func createBubble(){
@@ -59,7 +49,17 @@ class GameScene: SKScene {
         return -1
     }
     
+      func destroyBubble(location: CGPoint){
+            let index = findBubbleNode(location)
+            if (index != -1){
+                bubbles[index].explodeBubble()
+    //            bubbles.remove(at: index)
+    //            tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
+            }
+        }
+    
     func touchDown(atPoint pos : CGPoint) {
+        tunnel.animateCircle()
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
@@ -94,13 +94,11 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    let index = findBubbleNode(location)
-                    if (index != -1){
-//                        bubbles[index].explodeBubble()
+                    destroyBubble(location: location)
 //                        bubbles.remove(at: index)
-                        tunnel.createBody(initBubble: bubbles[0], finalBubble: bubbles[1])
+//                        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
                         
-                    }
+                    
                     
 //                    node.removeFromParent()
                 }
