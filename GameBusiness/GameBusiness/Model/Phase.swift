@@ -21,8 +21,9 @@ class Phase {
 }
 class Step {
     
-    internal init(_ position: CGPoint, _ duration: TimeInterval) {
-        self.position = position
+    internal init(s0: CGPoint, s1: CGPoint, _ duration: TimeInterval) {
+        self.position0 = s0
+        self.position1 = s1
         self.duration = duration
     }
     
@@ -32,6 +33,7 @@ class Step {
     }
     
     var isInterval: Bool = false
-    var position: CGPoint!
+    var position0: CGPoint!
+    var position1: CGPoint!
     var duration: TimeInterval!
 }
