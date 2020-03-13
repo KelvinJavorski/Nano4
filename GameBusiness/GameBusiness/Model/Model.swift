@@ -233,6 +233,7 @@ class Model {
             Step(s0: CGPoint(x: -80.0, y: -70.0 ),
                  s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000)),
             Step(TimeInterval(2.0)),
+<<<<<<< HEAD
             Step(s0: CGPoint(x: 50.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000)),
             Step(TimeInterval(2.0)),
@@ -341,6 +342,8 @@ class Model {
             Step(s0: CGPoint(x: -80.0, y: -70.0 ),
                  s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000)),
             Step(TimeInterval(2.0)),
+=======
+>>>>>>> develop
         ]
 
             //,        Phase(music: "Try.mp3", steps:
