@@ -22,7 +22,6 @@ class Tunnel{
     var lastBubble: Bubble
     var scene: GameScene!
     var circle: SKShapeNode = SKShapeNode()
-    var node : SKShapeNode = SKShapeNode()
     var initialPos: CGPoint!
     var finalPos: CGPoint!
     var tunnelNode: SKShapeNode!
@@ -46,6 +45,24 @@ class Tunnel{
         self.scene.addChild(tunnelNode)
     }
     
+    func animateCircle(tunnelDuration : TimeInterval){
+        self.circle = createCircle()
+        self.scene.addChild(self.circle)
+        
+        self.interval = tunnelDuration
+        let reduce = SKAction.scale(by: 0.5, duration: 1)
+        let move = SKAction.move(to: self.lastBubble.node.position, duration: self.interval)
+        let wait = SKAction.wait(forDuration: TimeInterval(0.3))
+
+        let sequence = SKAction.sequence([reduce, move, wait])
+        self.circle.run(sequence, completion: {
+            self.firstBubble.node.removeFromParent()
+            self.lastBubble.node.removeFromParent()
+        })
+        
+        
+    }
+    
     func createCircle() -> SKShapeNode{
         let radius = ((firstBubble.node.size.height  - 1 ) / 2)
         let circle = SKShapeNode(circleOfRadius: radius * 2)
@@ -54,28 +71,6 @@ class Tunnel{
         circle.zPosition = -1
         
         return circle
-    }
-    
-    func animateCircle(tunnelDuration : TimeInterval){
-        self.circle = createCircle()
-        self.scene.addChild(self.circle)
-        let reduce = reduceCircle()
-        
-        let move = moveCircleFromNodes(duration: tunnelDuration)
-        let sequence = SKAction.sequence([reduce, move])
-        self.circle.run(sequence, completion: {
-            return
-        })
-    }
-    
-    func reduceCircle() -> SKAction{
-        let resizeAction = SKAction.scale(by: 0.5, duration: 1)
-        return resizeAction
-    }
-    
-    func moveCircleFromNodes(duration : TimeInterval) -> SKAction{
-        let moveAction = SKAction.move(to: self.lastBubble.node.position, duration: duration)
-        return moveAction
     }
     
     

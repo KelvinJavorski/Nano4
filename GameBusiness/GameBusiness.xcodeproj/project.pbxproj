@@ -359,7 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.BubbleDance;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.Bubbledance;
 				PRODUCT_NAME = BubbleDance;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,7 +377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.BubbleDance;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.Bubbledance;
 				PRODUCT_NAME = BubbleDance;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
