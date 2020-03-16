@@ -58,6 +58,7 @@ class Tunnel{
         self.circle.run(sequence, completion: {
             self.firstBubble.node.removeFromParent()
             self.lastBubble.node.removeFromParent()
+            self.circle.removeFromParent()
         })
         
         

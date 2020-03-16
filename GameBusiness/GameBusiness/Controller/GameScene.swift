@@ -10,79 +10,49 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    var bubbles: [Bubble] = [Bubble]()
+    var bubbles : [Bubble] = [Bubble]()
     var currentPhase : Phase!
-    var tunnel: Tunnel!
-    var tunnels: [Tunnel] = [Tunnel]()
-    var handle: SKSpriteNode!
+    var tunnel : Tunnel!
+    var tunnels : [Tunnel] = [Tunnel]()
+    var handle : SKSpriteNode!
+    var height : CGFloat!
+    var width : CGFloat!
+    var animationTimer : Timer?
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-//        initTimer()
+        height = self.scene?.size.height
+        width = self.scene?.size.width
+        currentPhase = Model.shared.phases[0]
         initPhase()
-        
-        
-//        tunnel = Tunnel(scene: self, firstBubble: initBubble, lastBubble: finalBubble)
-//        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
     }
     
-//    func initTimer(){
-//        let timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(3), repeats: true) { (timer) in
-//            for step in currentPhase.steps{
-//                if (step.isInterval != true ){
-//                    let firstPosition = CGPoint(x: step.position0.x * width / 200, y: step.position0.y * height / 200)
-//                    let secondPosition = CGPoint(x: step.position1.x * width / 200, y: step.position1.y * height / 200)
-//                    createBubble(position: firstPosition)
-//                    createBubble(position: secondPosition)
-//                    //Cria um tunnel dá primeira bubble até a segunda
-//                    tunnel = Tunnel(scene: self, firstBubble: bubbles[cont],  lastBubble: bubbles[cont+1])
-//
-//                    cont+=2
-//                }
-//            }
-//        }
-//    }
-    
     func initPhase(){
-        currentPhase = Model.shared.phases[0]
-        let height : CGFloat = (self.scene?.size.height)!
-        let width : CGFloat = (self.scene?.size.width)!
-        let count = 0
-        var index = 0
-        var timer : Timer?
-        timer = Timer.scheduledTimer(withTimeInterval: self.currentPhase.steps[index].duration, repeats: true) { (timer) in
-            if index >= self.currentPhase.steps.count - 1{
+        let bubbleIndex = 0
+        var stepsIndex = 0
+        let usufulHeight = self.height / 200
+        let usufulWidth = self.width / 200
+        //Inicia animações dos circulos e dos tuneis
+        animationTimer = Timer.scheduledTimer(withTimeInterval: self.currentPhase.steps[stepsIndex].duration, repeats: true) { (timer) in
+            //Finaliza timer caso a fase acabe
+            if stepsIndex >= self.currentPhase.steps.count - 1{
                 timer.invalidate()
             }
-            let step = self.currentPhase.steps[index]
+            let step = self.currentPhase.steps[stepsIndex]
             if (step.isInterval != true ){
-                let firstPosition = CGPoint(x: step.position0.x * width / 200, y: step.position0.y * height / 200)
-                let secondPosition = CGPoint(x: step.position1.x * width / 200, y: step.position1.y * height / 200)
+                let firstPosition = CGPoint(x: step.position0.x * usufulWidth, y: step.position0.y * usufulHeight)
+                let secondPosition = CGPoint(x: step.position1.x * usufulWidth, y: step.position1.y * usufulHeight)
                 self.createBubble(position: firstPosition)
                 self.createBubble(position: secondPosition)
                 //Cria um tunnel dá primeira bubble até a segunda
-                self.tunnel = Tunnel(scene: self, firstBubble: self.bubbles[count],  lastBubble: self.bubbles[count+1])
+                self.tunnel = Tunnel(scene: self, firstBubble: self.bubbles[bubbleIndex],  lastBubble: self.bubbles[bubbleIndex+1])
                 self.tunnel.animateCircle(tunnelDuration: step.duration)
                 self.bubbles.removeAll()
-//                count+=2
             }
-            index+=1
+            stepsIndex+=1
         }
     }
-        
-//        for step in currentPhase.steps{
-//            if (step.isInterval != true ){
-//                let firstPosition = CGPoint(x: step.position0.x * width / 200, y: step.position0.y * height / 200)
-//                let secondPosition = CGPoint(x: step.position1.x * width / 200, y: step.position1.y * height / 200)
-//                createBubble(position: firstPosition)
-//                createBubble(position: secondPosition)
-//                //Cria um tunnel dá primeira bubble até a segunda
-//                tunnel = Tunnel(scene: self, firstBubble: bubbles[cont],  lastBubble: bubbles[cont+1])
-//
-//                cont+=2
-//            }
-//        }
     
     func createBubble(position : CGPoint){
         let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
@@ -112,8 +82,6 @@ class GameScene: SKScene {
         }
     
     func touchDown(atPoint pos : CGPoint) {
-//        tunnel.animateCircle()
-//        initPhase()
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
