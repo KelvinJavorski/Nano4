@@ -51,10 +51,12 @@ class Tunnel{
         
         self.interval = tunnelDuration
         let reduce = SKAction.scale(by: 0.5, duration: 1)
+        let increase = SKAction.scale(by: 1.5, duration: 0.1)
+        let secondReduce = SKAction.scale(by: 0.5, duration: 0.1)
         let move = SKAction.move(to: self.lastBubble.node.position, duration: self.interval)
         let wait = SKAction.wait(forDuration: TimeInterval(0.3))
 
-        let sequence = SKAction.sequence([reduce, move, wait])
+        let sequence = SKAction.sequence([reduce, increase, move, secondReduce, wait])
         self.circle.run(sequence, completion: {
             self.firstBubble.node.removeFromParent()
             self.lastBubble.node.removeFromParent()
@@ -68,7 +70,8 @@ class Tunnel{
         let radius = ((firstBubble.node.size.height  - 1 ) / 2)
         let circle = SKShapeNode(circleOfRadius: radius * 2)
         circle.position = initialPos
-        circle.fillColor = UIColor.blue
+//        circle.fillColor = UIColor.blue
+        circle.strokeColor = UIColor.white
         circle.zPosition = -1
         
         return circle
