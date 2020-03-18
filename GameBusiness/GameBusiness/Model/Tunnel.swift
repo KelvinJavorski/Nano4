@@ -20,6 +20,7 @@ class Tunnel{
     
     var firstBubble: Bubble
     var lastBubble: Bubble
+    var animationCompleted: Bool = false
     var scene: GameScene!
     var circle: SKShapeNode = SKShapeNode()
     var initialPos: CGPoint!
@@ -61,6 +62,7 @@ class Tunnel{
             self.firstBubble.node.removeFromParent()
             self.lastBubble.node.removeFromParent()
             self.circle.removeFromParent()
+            self.animationCompleted = true
         })
         
         
