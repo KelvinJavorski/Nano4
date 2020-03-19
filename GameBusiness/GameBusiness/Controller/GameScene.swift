@@ -18,9 +18,15 @@ class GameScene: SKScene {
     var width : CGFloat!
     
     var circle : Circle!
-    var bubble : Bubble!
+    var firstBubble : Bubble!
     var secondBubble: Bubble!
-    var animationTimer : Timer?
+    
+    var acquiredPoints = 0
+    
+    var currentStep : Step!
+    var currentStepIndex : Int = 0
+    var stepCurrentTime = TimeInterval()
+    
     var lastTime: TimeInterval = TimeInterval(0)
     
     private var label : SKLabelNode?
@@ -30,74 +36,96 @@ class GameScene: SKScene {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
-        bubble = self.createBubble(position: currentPhase.steps[1].position0)
-        secondBubble = self.createBubble(position: currentPhase.steps[1].position1)
-        circle = Circle(scene: self, bubble: bubble, destination: secondBubble.node.position)
-//        initPhase()
+        initPhase()
     }
     
     func initPhase(){
-        let bubbleIndex = 0
-        var stepsIndex = 0
-        //Inicia animações dos circulos e dos tuneis
-        animationTimer = Timer.scheduledTimer(withTimeInterval: self.currentPhase.steps[stepsIndex].duration, repeats: true) { (timer) in
-            //Finaliza timer caso a fase acabe
-            if stepsIndex >= self.currentPhase.steps.count - 1{
-                timer.invalidate()
-            }
-            let step = self.currentPhase.steps[stepsIndex]
-            if (!step.isInterval){
-                let firstBubble = self.createBubble(position: step.position0)
-                let lastBubble = self.createBubble(position: step.position1)
-                self.bubbles.append(contentsOf: [firstBubble, lastBubble])
-                
-                //Cria um tunnel dá primeira bubble até a segunda
-                self.tunnel = Tunnel(scene: self, firstBubble: self.bubbles[bubbleIndex],  lastBubble: self.bubbles[bubbleIndex+1])
-                self.tunnel.animateCircle(tunnelDuration: step.duration)
-                self.bubbles.removeAll()
-                
-            }
-            stepsIndex+=1
+        currentStep = self.currentPhase.steps[currentStepIndex]
+        if (!currentStep.isInterval){
+            firstBubble = self.createBubble(position: currentStep.position0, isFixed: false)
+            secondBubble = self.createBubble(position: currentStep.position1, isFixed: true)
+            circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
         }
     }
     
-    func createBubble(position : CGPoint) -> Bubble{
+    func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
         let usufulHeight = self.height / 200
         let usufulWidth = self.width / 200
         let fixedPosition = CGPoint(x: position.x * usufulWidth, y: position.y * usufulHeight)
 
         let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
-        bubble.node.name = "bubble"
+        if isFixed{
+            bubble.node.name = "fixedBubble"
+        }else{
+            bubble.node.name = "bubble"
+        }
         bubble.node.position = fixedPosition
-        
         self.addChild(bubble.node)
         return bubble
     }
     
-    func findBubbleNode(_ location : CGPoint) -> Int {
-        for (index, bubble) in bubbles.enumerated(){
-            if bubble.node.contains(location){
-                return index
+    func nextStep(){
+        if !currentStep.isInterval{
+            removeTunnel()
+        }
+        if currentStepIndex < self.currentPhase.steps.count - 1{
+            currentStepIndex += 1
+            currentStep = self.currentPhase.steps[currentStepIndex]
+            if !currentStep.isInterval{
+                buildTunnel()
             }
         }
-        return -1
     }
     
-      func destroyBubble(location: CGPoint){
-            let index = findBubbleNode(location)
-            if (index != -1){
-                bubbles[index].explodeBubble()
-    //            bubbles.remove(at: index)
-    //            tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
-            }
+    func buildTunnel(){
+        firstBubble = createBubble(position: currentStep.position0, isFixed: false)
+        secondBubble = createBubble(position: currentStep.position1, isFixed: true)
+        circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
+    }
+    
+    func removeTunnel(){
+        firstBubble.node.removeFromParent()
+        secondBubble.node.removeFromParent()
+        circle.node.removeFromParent()
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if lastTime == 0{
+           lastTime = currentTime
+           return
         }
     
+        var deltaTime = currentTime - lastTime
+        lastTime = currentTime
+        
+        if deltaTime > 0.1{
+            deltaTime = 0.1
+        }
+        
+        currentStep.update(deltaTime: deltaTime)
+        if (currentStep.isFinished){
+            currentStep.isFinished = false
+            print("Acquired Points: \(acquiredPoints)")
+            print("Total Points: \(Model.shared.totalPoints)")
+            nextStep()
+        }
+        
+        if circle != nil{
+            circle.update(deltaTime: deltaTime)
+        }
+//        circle.update(deltaTime: deltaTime)
+    }
+    
     func touchDown(atPoint pos : CGPoint) {
-        circle.isReducing = true
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
             if self.handle.name == "bubble"{
+                if circle.isPointable{
+                    acquiredPoints += 1
+                    circle.isPointable = false
+                }
+//                circle.isReducing = true
 //                self.drag(node: handle)
             }
         }
@@ -128,7 +156,7 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    destroyBubble(location: location)
+//                    destroyBubble(location: location)
 //                        bubbles.remove(at: index)
 //                        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
                         
@@ -143,20 +171,4 @@ class GameScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
-    override func update(_ currentTime: TimeInterval) {
-        if lastTime == 0{
-           lastTime = currentTime
-           return
-        }
-    
-        var deltaTime = currentTime - lastTime
-        lastTime = currentTime
-        
-        if deltaTime > 0.1{
-            deltaTime = 0.1
-        }
-        
-        circle.update(deltaTime: deltaTime)
-    }
 }
