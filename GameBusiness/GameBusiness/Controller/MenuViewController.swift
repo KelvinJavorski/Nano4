@@ -8,12 +8,16 @@
 
 import UIKit
 import FirebaseAnalytics
+import GoogleMobileAds
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, GADInterstitialDelegate {
 
+    var interstitial: GADInterstitial!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        interstitial = createAndLoadInterstitial()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,7 +29,52 @@ class MenuViewController: UIViewController {
             }
         }
     }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-2334129422444825/8121186261")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
 
+    @IBAction func showAd(_ sender: Any) {
+
+        if interstitial.isReady {
+          interstitial.present(fromRootViewController: self)
+        } else {
+          print("Ad wasn't ready")
+        }
+    }
+    
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+      print("interstitialDidReceiveAd")
+    }
+
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+      print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+      print("interstitialWillPresentScreen")
+    }
+
+    /// Tells the delegate the interstitial is to be animated off the screen.
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+      print("interstitialWillDismissScreen")
+    }
+
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+      interstitial = createAndLoadInterstitial()
+    }
+
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+      print("interstitialWillLeaveApplication")
+    }
     /*
     // MARK: - Navigation
 

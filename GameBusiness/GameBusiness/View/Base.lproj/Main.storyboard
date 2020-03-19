@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBG-Qs-rUT" userLabel="Container">
-                                <rect key="frame" x="30" y="369.5" width="354" height="167"/>
+                                <rect key="frame" x="30" y="328" width="354" height="250.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubble Dance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gq-ml-VRi">
                                         <rect key="frame" x="0.0" y="30" width="354" height="33.5"/>
@@ -24,8 +24,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aBC-HB-uzA" userLabel="Menu">
-                                        <rect key="frame" x="30" y="123.5" width="294" height="73.5"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aBC-HB-uzA" userLabel="Menu">
+                                        <rect key="frame" x="30" y="123.5" width="294" height="157"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-kZ-yms">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="73.5"/>
@@ -36,6 +36,17 @@
                                                 <state key="normal" title="Jogar" backgroundImage="background"/>
                                                 <connections>
                                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="ShowModalView" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="I1o-Yn-LPO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVu-fT-HVe">
+                                                <rect key="frame" x="0.0" y="83.5" width="294" height="73.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zVu-fT-HVe" secondAttribute="height" multiplier="4:1" id="clQ-33-YJy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <state key="normal" title="Apoiar" backgroundImage="background"/>
+                                                <connections>
+                                                    <action selector="showAd:" destination="cxa-O4-5W1" eventType="touchUpInside" id="tnf-Cw-f9u"/>
                                                 </connections>
                                             </button>
                                         </subviews>

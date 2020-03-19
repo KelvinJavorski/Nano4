@@ -12,5 +12,7 @@ target 'GameBusiness' do
 	# https://firebase.google.com/docs/ios/setup#available-pods
   
   pod 'Firebase/Crashlytics'
+  
+  pod 'Google-Mobile-Ads-SDK'
 
 end

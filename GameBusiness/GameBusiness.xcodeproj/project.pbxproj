@@ -32,6 +32,9 @@
 /* Begin PBXFileReference section */
 		07A0133DF19A7C0DD8137C66 /* Pods-GameBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBusiness.debug.xcconfig"; path = "Target Support Files/Pods-GameBusiness/Pods-GameBusiness.debug.xcconfig"; sourceTree = "<group>"; };
 		1D77256DB11A8A0AA9804234 /* Pods_GameBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42414BBE24230414008B36C3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = "Pods/Google-Mobile-Ads-SDK/LICENSE"; sourceTree = "<group>"; };
+		42414BC024230431008B36C3 /* Google-Mobile-Ads-SDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Google-Mobile-Ads-SDK"; path = "Pods/Google-Mobile-Ads-SDK"; sourceTree = "<group>"; };
+		42414BC224230496008B36C3 /* GoogleMobileAds */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = GoogleMobileAds; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/GoogleMobileAds"; sourceTree = "<group>"; };
 		4256E787241972CF00BC72D7 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		4256E788241972CF00BC72D7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4256E78B2422A12D00BC72D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -149,6 +152,9 @@
 		DB28AC069E298E8822549600 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42414BC224230496008B36C3 /* GoogleMobileAds */,
+				42414BC024230431008B36C3 /* Google-Mobile-Ads-SDK */,
+				42414BBE24230414008B36C3 /* LICENSE */,
 				1D77256DB11A8A0AA9804234 /* Pods_GameBusiness.framework */,
 			);
 			name = Frameworks;
@@ -455,6 +461,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.Bubbledance;
 				PRODUCT_NAME = BubbleDance;
 				SWIFT_VERSION = 5.0;
@@ -473,6 +483,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Javorski.Bubbledance;
 				PRODUCT_NAME = BubbleDance;
