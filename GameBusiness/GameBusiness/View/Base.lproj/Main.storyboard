@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="xdt-2V-bC1">
             <objects>
-                <viewController id="cxa-O4-5W1" sceneMemberID="viewController">
+                <viewController id="cxa-O4-5W1" customClass="MenuViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4S-Xs-2Nx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Jogar" backgroundImage="background"/>
                                                 <connections>
-                                                    <segue destination="BV1-FR-VrT" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="I1o-Yn-LPO"/>
+                                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="ShowModalView" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="I1o-Yn-LPO"/>
                                                 </connections>
                                             </button>
                                         </subviews>

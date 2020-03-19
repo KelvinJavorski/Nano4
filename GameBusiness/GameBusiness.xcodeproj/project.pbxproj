@@ -10,6 +10,7 @@
 		4256E789241972CF00BC72D7 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256E787241972CF00BC72D7 /* Phase.swift */; };
 		4256E78A241972CF00BC72D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256E788241972CF00BC72D7 /* Model.swift */; };
 		4256E78C2422A12D00BC72D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4256E78B2422A12D00BC72D7 /* GoogleService-Info.plist */; };
+		42E383FD2422D77F00064794 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E383FC2422D77F00064794 /* MenuViewController.swift */; };
 		489254160292D0D7E68E856C /* Pods_GameBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D77256DB11A8A0AA9804234 /* Pods_GameBusiness.framework */; };
 		B6061B9324195C04002DC707 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6061B9224195C04002DC707 /* SnowParticle.sks */; };
 		B6061B98241977CD002DC707 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B97241977CD002DC707 /* Tunnel.swift */; };
@@ -34,6 +35,7 @@
 		4256E787241972CF00BC72D7 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		4256E788241972CF00BC72D7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4256E78B2422A12D00BC72D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		42E383FC2422D77F00064794 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8D63C20A592EEBB500B590A8 /* Pods-GameBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBusiness.release.xcconfig"; path = "Target Support Files/Pods-GameBusiness/Pods-GameBusiness.release.xcconfig"; sourceTree = "<group>"; };
 		B6061B9224195C04002DC707 /* SnowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle.sks; sourceTree = "<group>"; };
 		B6061B97241977CD002DC707 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				B67FA7AB240ED6EC00E99DB9 /* GameScene.swift */,
 				B67FA7AD240ED6EC00E99DB9 /* GameViewController.swift */,
+				42E383FC2422D77F00064794 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				B67FA79F240ED6EC00E99DB9 /* Frameworks */,
 				B67FA7A0240ED6EC00E99DB9 /* Resources */,
 				5A9C527BE5F95A7475071554 /* [CP] Embed Pods Frameworks */,
+				42E383FE2422EDA600064794 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,6 +228,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		42E383FE2422EDA600064794 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		5A9C527BE5F95A7475071554 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +299,7 @@
 				B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */,
 				B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */,
 				B6061B9A241AA7E4002DC707 /* CGPoint+Extensions.swift in Sources */,
+				42E383FD2422D77F00064794 /* MenuViewController.swift in Sources */,
 				B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */,
 				B67FA7C62412D6DA00E99DB9 /* Bubble.swift in Sources */,
 				B6061B9C241AA7EA002DC707 /* OperatorsOverloading.swift in Sources */,
