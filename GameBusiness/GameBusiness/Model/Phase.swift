@@ -33,7 +33,21 @@ class Step {
     }
     
     var isInterval: Bool = false
+    var isFinished: Bool = false
     var position0: CGPoint!
     var position1: CGPoint!
     var duration: TimeInterval!
+    var currentTime = TimeInterval()
+    
+    func update(deltaTime: TimeInterval){
+        currentTime += deltaTime
+        
+        var parcial = currentTime / duration
+        
+        if parcial >= 1{
+            parcial = 1
+            currentTime = 0
+            isFinished = true
+        }
+    }
 }
