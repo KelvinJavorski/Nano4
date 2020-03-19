@@ -13,6 +13,7 @@
 		B6061B98241977CD002DC707 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B97241977CD002DC707 /* Tunnel.swift */; };
 		B6061B9A241AA7E4002DC707 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B99241AA7E3002DC707 /* CGPoint+Extensions.swift */; };
 		B6061B9C241AA7EA002DC707 /* OperatorsOverloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B9B241AA7EA002DC707 /* OperatorsOverloading.swift */; };
+		B6061B9E2422E839002DC707 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B9D2422E839002DC707 /* Circle.swift */; };
 		B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7A5240ED6EC00E99DB9 /* AppDelegate.swift */; };
 		B67FA7A8240ED6EC00E99DB9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B67FA7A7240ED6EC00E99DB9 /* GameScene.sks */; };
 		B67FA7AA240ED6EC00E99DB9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B67FA7A9240ED6EC00E99DB9 /* Actions.sks */; };
@@ -33,6 +34,7 @@
 		B6061B97241977CD002DC707 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		B6061B99241AA7E3002DC707 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		B6061B9B241AA7EA002DC707 /* OperatorsOverloading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsOverloading.swift; sourceTree = "<group>"; };
+		B6061B9D2422E839002DC707 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		B67FA7A2240ED6EC00E99DB9 /* BubbleDance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleDance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67FA7A5240ED6EC00E99DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B67FA7A7240ED6EC00E99DB9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				B67FA7C92412DAFD00E99DB9 /* GameObject.swift */,
 				B67FA7C52412D6DA00E99DB9 /* Bubble.swift */,
 				B6061B97241977CD002DC707 /* Tunnel.swift */,
+				B6061B9D2422E839002DC707 /* Circle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				B67FA7AE240ED6EC00E99DB9 /* GameViewController.swift in Sources */,
 				4256E789241972CF00BC72D7 /* Phase.swift in Sources */,
 				B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */,
+				B6061B9E2422E839002DC707 /* Circle.swift in Sources */,
 				B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */,
 				B6061B9A241AA7E4002DC707 /* CGPoint+Extensions.swift in Sources */,
 				B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */,
@@ -353,6 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = F88DY6S927;
 				INFOPLIST_FILE = GameBusiness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -371,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = F88DY6S927;
 				INFOPLIST_FILE = GameBusiness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

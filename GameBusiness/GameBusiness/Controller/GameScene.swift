@@ -13,11 +13,16 @@ class GameScene: SKScene {
     var bubbles : [Bubble] = [Bubble]()
     var currentPhase : Phase!
     var tunnel : Tunnel!
-    var tunnels : [Tunnel] = [Tunnel]()
     var handle : SKSpriteNode!
     var height : CGFloat!
     var width : CGFloat!
+    
+    var circle : Circle!
+    var bubble : Bubble!
+    var secondBubble: Bubble!
     var animationTimer : Timer?
+    var lastTime: TimeInterval = TimeInterval(0)
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -25,7 +30,10 @@ class GameScene: SKScene {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
-        initPhase()
+        bubble = self.createBubble(position: currentPhase.steps[1].position0)
+        secondBubble = self.createBubble(position: currentPhase.steps[1].position1)
+        circle = Circle(scene: self, bubble: bubble, destination: secondBubble.node.position)
+//        initPhase()
     }
     
     func initPhase(){
@@ -85,6 +93,7 @@ class GameScene: SKScene {
         }
     
     func touchDown(atPoint pos : CGPoint) {
+        circle.isReducing = true
         let nodeArray = self.nodes(at: pos)
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
@@ -136,6 +145,18 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        if lastTime == 0{
+           lastTime = currentTime
+           return
+        }
+    
+        var deltaTime = currentTime - lastTime
+        lastTime = currentTime
+        
+        if deltaTime > 0.1{
+            deltaTime = 0.1
+        }
+        
+        circle.update(deltaTime: deltaTime)
     }
 }

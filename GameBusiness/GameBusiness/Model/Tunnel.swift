@@ -25,7 +25,7 @@ class Tunnel{
     var circle: SKShapeNode = SKShapeNode()
     var initialPos: CGPoint!
     var finalPos: CGPoint!
-    var tunnelNode: SKShapeNode!
+    var node: SKShapeNode!
     var interval: TimeInterval!
     
     func createTunnel(initBubble: Bubble, finalBubble: Bubble){
@@ -36,14 +36,14 @@ class Tunnel{
         path.move(to: initialPos)
         path.addLine(to: finalPos)
         
-        tunnelNode = SKShapeNode()
-        tunnelNode.path = path
-        tunnelNode.position = CGPoint(x: 0, y: 0)
-        tunnelNode.fillColor = UIColor.red
-        tunnelNode.strokeColor = UIColor.blue
-        tunnelNode.lineWidth = 10
-        tunnelNode.zPosition = -1
-        self.scene.addChild(tunnelNode)
+        node = SKShapeNode()
+        node.path = path
+        node.position = CGPoint(x: 0, y: 0)
+        node.fillColor = UIColor.red
+        node.strokeColor = UIColor.blue
+        node.lineWidth = 10
+        node.zPosition = -1
+        self.scene.addChild(node)
     }
     
     func animateCircle(tunnelDuration : TimeInterval){
