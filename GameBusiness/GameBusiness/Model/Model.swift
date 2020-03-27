@@ -17,6 +17,7 @@ class Model {
     
     let interval = 0.2
     var totalPoints = 0
+    var acumulatedPoints = 0
     lazy var phases: [Phase] = [
         Phase(music: "Neon_Storm.mp3", steps:
         [

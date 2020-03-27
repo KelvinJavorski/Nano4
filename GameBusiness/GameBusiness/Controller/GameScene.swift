@@ -22,8 +22,6 @@ class GameScene: SKScene {
     var bubble : Bubble!
     var secondBubble: Bubble!
     
-    var acquiredPoints = 0
-    
     var currentStep : Step!
     var currentBubbleIndex : Int = 0
     var currentBubbleKill : Int = 0
@@ -119,7 +117,7 @@ class GameScene: SKScene {
         
         if (currentStep.isFinished){
             currentStep.isFinished = false
-            print("Acquired Points: \(acquiredPoints)")
+            print("Acquired Points: \(Model.shared.acumulatedPoints)")
             print("Total Points: \(Model.shared.totalPoints)")
             nextStep()
         }
@@ -135,7 +133,7 @@ class GameScene: SKScene {
         if handle != nil{
             if self.handle.name == "bubble"{
                 if circle.isPointable{
-                    acquiredPoints += 1
+                    Model.shared.acumulatedPoints += 1
                     circle.isPointable = false
                 }
 //                circle.isReducing = true
@@ -147,7 +145,7 @@ class GameScene: SKScene {
     func touchMoved(toPoint pos : CGPoint) {
         if handle != nil{
             if self.handle.name == "bubble"{
-                self.handle.position = pos
+//                self.handle.position = pos
             }
         }
     }
@@ -169,13 +167,10 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-//                    destroyBubble(location: location)
-//                        bubbles.remove(at: index)
-//                        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
-                        
-                    
-                    
-//                    node.removeFromParent()
+                    if !currentStep.isFinished{
+                        bubbles[0].explodeBubble()
+                        circles[0].isPointable = false
+                    }
                 }
             }
     }

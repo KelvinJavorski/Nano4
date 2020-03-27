@@ -38,6 +38,7 @@ class Circle{
     var moveCurrentTime = TimeInterval()
     var isMoving = false
     var isInside = true
+    var bubbleIsAlive = true
     
     var finished = false
     
