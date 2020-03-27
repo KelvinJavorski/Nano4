@@ -21,7 +21,7 @@ class Model {
         Phase(music: "Neon_Storm.mp3", steps:
         [
             // Eu usei as coordenadas como porcentagens [-100, 100]
-            Step(TimeInterval(interval)),
+            Step(TimeInterval(3)),
             Step(s0: CGPoint(x: 50.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
             Step(TimeInterval(interval)),

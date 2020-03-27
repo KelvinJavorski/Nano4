@@ -24,6 +24,7 @@ class Circle{
     var bubble: Bubble!
     var origem: CGPoint!
     var destination: CGPoint!
+    var distance: CGFloat!
     var duration: TimeInterval!
     
     var reduceDuration: TimeInterval!
@@ -50,9 +51,9 @@ class Circle{
         else if isIncreasing{
             increase(deltaTime: deltaTime)
         }
-        else if isMoving{
-            move(deltaTime: deltaTime)
-        }
+//        else if isMoving{
+//            move(deltaTime: deltaTime)
+//        }
         
     }
     
@@ -68,12 +69,16 @@ class Circle{
         self.node = circle
         self.origem = node.position
         scene.addChild(node)
+        
+        let array = destination - origem
+        self.distance = array.length()
+        print(self.distance ?? 0)
     }
     
     private func setupInterval(){
-        reduceDuration = duration * 0.4
-        increaseDuration = duration * 0.05
-        moveDuration = duration * 0.5
+        reduceDuration = duration * 0.9
+        increaseDuration = duration * 0.1
+        moveDuration = duration * 0.5 + TimeInterval(distance * 0.01)
     }
     
     func reduce(deltaTime: TimeInterval){
