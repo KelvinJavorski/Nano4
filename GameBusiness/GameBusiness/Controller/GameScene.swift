@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles : [Bubble] = [Bubble]()
+    var circles: [Circle] = [Circle]()
     var currentPhase : Phase!
     var tunnel : Tunnel!
     var handle : SKSpriteNode!
@@ -18,13 +19,14 @@ class GameScene: SKScene {
     var width : CGFloat!
     
     var circle : Circle!
-    var firstBubble : Bubble!
+    var bubble : Bubble!
     var secondBubble: Bubble!
     
     var acquiredPoints = 0
     
     var currentStep : Step!
-    var currentStepIndex : Int = 0
+    var currentBubbleIndex : Int = 0
+    var currentBubbleKill : Int = 0
     var stepCurrentTime = TimeInterval()
     
     var lastTime: TimeInterval = TimeInterval(0)
@@ -40,11 +42,12 @@ class GameScene: SKScene {
     }
     
     func initPhase(){
-        currentStep = self.currentPhase.steps[currentStepIndex]
+        currentStep = self.currentPhase.steps[currentBubbleIndex]
         if (!currentStep.isInterval){
-            firstBubble = self.createBubble(position: currentStep.position0, isFixed: false)
-            secondBubble = self.createBubble(position: currentStep.position1, isFixed: true)
-            circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
+            bubble = self.createBubble(position: currentStep.position0, isFixed: false)
+            bubbles.append(bubble)
+            circle = Circle(scene: self, bubble: bubble, duration: currentStep.circleDuration)
+            circles.append(circle)
         }
     }
     
@@ -64,30 +67,35 @@ class GameScene: SKScene {
         return bubble
     }
     
+    func buildBubble(nextStep: Step){
+        bubble = self.createBubble(position: nextStep.position0, isFixed: false)
+        bubbles.append(bubble)
+        circle = Circle(scene: self, bubble: bubble, duration: nextStep.circleDuration)
+        circles.append(circle)
+    }
+    
     func nextStep(){
-        if !currentStep.isInterval{
-            removeTunnel()
-        }
-        if currentStepIndex < self.currentPhase.steps.count - 1{
-            currentStepIndex += 1
-            currentStep = self.currentPhase.steps[currentStepIndex]
+        if (currentBubbleIndex < self.currentPhase.steps.count - 1){
             if !currentStep.isInterval{
-                buildTunnel()
+                bubbles[0].node.removeFromParent()
+                bubbles.remove(at: 0)
+                circles[0].node.removeFromParent()
+                circles.remove(at: 0)
+            }
+            currentBubbleIndex += 1
+            currentStep = currentPhase.steps[currentBubbleIndex]
+        }
+    }
+    
+    func nextBubble(){
+        if (currentBubbleIndex < self.currentPhase.steps.count - 1){
+            let nextStep = currentPhase.steps[currentBubbleIndex + 1]
+            if !nextStep.isInterval{
+                buildBubble(nextStep: nextStep)
             }
         }
     }
     
-    func buildTunnel(){
-        firstBubble = createBubble(position: currentStep.position0, isFixed: false)
-        secondBubble = createBubble(position: currentStep.position1, isFixed: true)
-        circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
-    }
-    
-    func removeTunnel(){
-        firstBubble.node.removeFromParent()
-        secondBubble.node.removeFromParent()
-        circle.node.removeFromParent()
-    }
     
     override func update(_ currentTime: TimeInterval) {
         if lastTime == 0{
@@ -103,6 +111,12 @@ class GameScene: SKScene {
         }
         
         currentStep.update(deltaTime: deltaTime)
+        
+        if (currentStep.addNewBubble){
+            currentStep.addNewBubble = false
+            nextBubble()
+        }
+        
         if (currentStep.isFinished){
             currentStep.isFinished = false
             print("Acquired Points: \(acquiredPoints)")
@@ -113,7 +127,6 @@ class GameScene: SKScene {
         if circle != nil{
             circle.update(deltaTime: deltaTime)
         }
-//        circle.update(deltaTime: deltaTime)
     }
     
     func touchDown(atPoint pos : CGPoint) {
