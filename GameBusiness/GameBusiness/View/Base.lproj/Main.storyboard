@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
+        <!--Menu Inicial-->
         <scene sceneID="xdt-2V-bC1">
             <objects>
-                <viewController id="cxa-O4-5W1" customClass="MenuViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuInicial" title="Menu Inicial" id="cxa-O4-5W1" customClass="MenuViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4S-Xs-2Nx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--Score View Controller-->
         <scene sceneID="78f-cQ-y1E">
             <objects>
-                <viewController id="I5E-cV-fHU" sceneMemberID="viewController">
+                <viewController id="I5E-cV-fHU" customClass="ScoreViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmO-sX-Mvq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,9 +123,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kYw-DJ-nPC" secondAttribute="height" multiplier="6:5" id="dwY-Fn-DW6"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="0.89752782534246578" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.right.circle" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Q6-9b0" userLabel="Anterior">
@@ -134,14 +134,14 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zKt-Q6-9b0" secondAttribute="height" multiplier="6:5" id="0Gf-z0-2vr"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="0.90389554794520544" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.uturn.left.circle" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3c-8u-9Ok" userLabel="Reward">
                                         <rect key="frame" x="97" y="0.0" width="121" height="64"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.58012890819999996" green="0.82869678739999997" blue="0.79942357539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="194" id="1Wt-Ce-QeV"/>
                                             <constraint firstAttribute="height" constant="64" id="5Pe-KH-22c"/>
@@ -152,6 +152,9 @@
                                         <state key="normal" title="2x 💰" image="video" catalog="system" backgroundImage="background">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                         </state>
+                                        <connections>
+                                            <action selector="rewardedAdAction:" destination="I5E-cV-fHU" eventType="touchUpInside" id="2oM-sA-tkG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

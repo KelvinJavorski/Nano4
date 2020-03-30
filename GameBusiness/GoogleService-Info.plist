@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>bubbledanceserver.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:15873941639:ios:e716f326a51d3f57b5d822</string>
 	<key>DATABASE_URL</key>
 	<string>https://bubbledanceserver.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-2334129422444825~4943943298</string>
 </dict>
 </plist>
