@@ -18,36 +18,8 @@ class Phase {
     // TODO: define music type.
     var music: String!
     var steps: [Step]!
-}
-class Step {
     
-    internal init(s0: CGPoint, s1: CGPoint, _ duration: TimeInterval) {
-        self.position0 = s0
-        self.position1 = s1
-        self.duration = duration
-    }
+    var currentStep: Step!
+    var lastStep: Step!
     
-    internal init(_ duration: TimeInterval) {
-        self.isInterval = true
-        self.duration = duration
-    }
-    
-    var isInterval: Bool = false
-    var isFinished: Bool = false
-    var position0: CGPoint!
-    var position1: CGPoint!
-    var duration: TimeInterval!
-    var currentTime = TimeInterval()
-    
-    func update(deltaTime: TimeInterval){
-        currentTime += deltaTime
-        
-        var parcial = currentTime / duration
-        
-        if parcial >= 1{
-            parcial = 1
-            currentTime = 0
-            isFinished = true
-        }
-    }
 }

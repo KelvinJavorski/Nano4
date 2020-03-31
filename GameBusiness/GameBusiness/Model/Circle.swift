@@ -10,10 +10,9 @@ import Foundation
 import SpriteKit
 
 class Circle{
-    internal init(scene: GameScene?, bubble: Bubble, destination: CGPoint, duration: TimeInterval) {
+    internal init(scene: GameScene?, bubble: Bubble, duration: TimeInterval) {
         self.scene = scene
         self.bubble = bubble
-        self.destination = destination
         self.duration = duration
         setupNode()
         setupInterval()
@@ -23,8 +22,6 @@ class Circle{
     var scene: GameScene!
     var bubble: Bubble!
     var origem: CGPoint!
-    var destination: CGPoint!
-    var distance: CGFloat!
     var duration: TimeInterval!
     
     var reduceDuration: TimeInterval!
@@ -41,6 +38,7 @@ class Circle{
     var moveCurrentTime = TimeInterval()
     var isMoving = false
     var isInside = true
+    var bubbleIsAlive = true
     
     var finished = false
     
@@ -51,10 +49,6 @@ class Circle{
         else if isIncreasing{
             increase(deltaTime: deltaTime)
         }
-//        else if isMoving{
-//            move(deltaTime: deltaTime)
-//        }
-        
     }
     
     private func setupNode(){
@@ -69,23 +63,19 @@ class Circle{
         self.node = circle
         self.origem = node.position
         scene.addChild(node)
-        
-        let array = destination - origem
-        self.distance = array.length()
-        print(self.distance ?? 0)
+    
     }
     
     private func setupInterval(){
-        reduceDuration = duration * 0.9
+        reduceDuration = duration * 0.97
         increaseDuration = duration * 0.1
-        moveDuration = duration * 0.5 + TimeInterval(distance * 0.01)
     }
     
     func reduce(deltaTime: TimeInterval){
         reduceCurrentTime += deltaTime
         
         var parcial = CGFloat(reduceCurrentTime / reduceDuration)
-        if parcial >= 0.5 && parcial <= 1{
+        if parcial >= 0.6 && parcial <= 1{
             isPointable = true
             node.strokeColor = UIColor.green
         }
@@ -97,51 +87,29 @@ class Circle{
             isPointable = false
             Model.shared.totalPoints += 1
         }
+//
+//        var tempo = 120.0 // seg
+//        var velocidade = 200.0 / tempo
+//        var deslocamento = deltaTime * velocidade
+//        var tamanho -= deslocamento
         
-        let scale : CGFloat = 0.9
+        let scale : CGFloat = 0.5
         node.setScale(node.xScale - scale * CGFloat(deltaTime))
     }
     
     func increase(deltaTime: TimeInterval){
         increaseCurrentTime += deltaTime
-        
+        node.strokeColor = UIColor.white
         var parcial = CGFloat(increaseCurrentTime / increaseDuration)
         if parcial >= 1{
             parcial = 1
             increaseCurrentTime = 0
             isIncreasing = false
-            isMoving = true
             node.strokeColor = UIColor.white
         }
         
-        let scale: CGFloat = 1.6
+        let scale: CGFloat = 1.2
         node.setScale(node.xScale + scale * CGFloat(deltaTime))
     }
     
-    func move(deltaTime: TimeInterval){
-        moveCurrentTime += deltaTime
-        
-        var parcial = CGFloat(moveCurrentTime / moveDuration)
-        
-        bubbleIsInsideCircle()
-        
-        if parcial >= 1{
-            parcial = 1
-            moveCurrentTime = 0
-            isMoving = false
-            finished = true
-            Model.shared.totalPoints += 1
-            bubble.explodeBubble()
-        }
-        
-        let vetor = destination - origem
-        let vetorParcial = parcial * vetor
-        
-        node.position = origem + vetorParcial
-    }
-    
-    func bubbleIsInsideCircle(){
-        let vetor = bubble.node.position - self.node.position
-        print(vetor.length())
-    }
 }

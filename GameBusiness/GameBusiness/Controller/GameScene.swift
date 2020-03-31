@@ -11,28 +11,26 @@ import GameplayKit
 
 class GameScene: SKScene {
     var bubbles : [Bubble] = [Bubble]()
+    var circles: [Circle] = [Circle]()
     var currentPhase : Phase!
     var tunnel : Tunnel!
     var handle : SKSpriteNode!
     var height : CGFloat!
     var width : CGFloat!
     
-    var circle : Circle!
-    var firstBubble : Bubble!
-    var secondBubble: Bubble!
+    var id: Int = 0
+    var currentSteps: [Step] = [Step]()
     
-    var acquiredPoints = 0
-    
-    var currentStep : Step!
-    var currentStepIndex : Int = 0
-    var stepCurrentTime = TimeInterval()
+    var stepsCompleted : Int = 0
+    var numberOfBubbles : Int = 0
+    var stepsCreated : Int = 0
     
     var lastTime: TimeInterval = TimeInterval(0)
-    
+        
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    override func didMove(to view: SKView) {
+    override func sceneDidLoad() {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
@@ -40,12 +38,7 @@ class GameScene: SKScene {
     }
     
     func initPhase(){
-        currentStep = self.currentPhase.steps[currentStepIndex]
-        if (!currentStep.isInterval){
-            firstBubble = self.createBubble(position: currentStep.position0, isFixed: false)
-            secondBubble = self.createBubble(position: currentStep.position1, isFixed: true)
-            circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
-        }
+        currentSteps.append(currentPhase.steps[0])
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
@@ -64,30 +57,18 @@ class GameScene: SKScene {
         return bubble
     }
     
-    func nextStep(){
-        if !currentStep.isInterval{
-            removeTunnel()
-        }
-        if currentStepIndex < self.currentPhase.steps.count - 1{
-            currentStepIndex += 1
-            currentStep = self.currentPhase.steps[currentStepIndex]
-            if !currentStep.isInterval{
-                buildTunnel()
-            }
-        }
+    func buildBubble(step: Step){
+        step.bubble = self.createBubble(position: step.position0, isFixed: false)
+        step.circle = Circle(scene: self, bubble: step.bubble, duration: step.circleDuration)
     }
     
-    func buildTunnel(){
-        firstBubble = createBubble(position: currentStep.position0, isFixed: false)
-        secondBubble = createBubble(position: currentStep.position1, isFixed: true)
-        circle = Circle(scene: self, bubble: firstBubble, destination: secondBubble.node.position, duration: currentStep.duration)
+    func nextBubble(step: Step){
+        if stepsCreated < self.currentPhase.steps.count - 1 {
+            buildBubble(step: step)
+        }
+        
     }
     
-    func removeTunnel(){
-        firstBubble.node.removeFromParent()
-        secondBubble.node.removeFromParent()
-        circle.node.removeFromParent()
-    }
     
     override func update(_ currentTime: TimeInterval) {
         if lastTime == 0{
@@ -102,18 +83,30 @@ class GameScene: SKScene {
             deltaTime = 0.1
         }
         
-        currentStep.update(deltaTime: deltaTime)
-        if (currentStep.isFinished){
-            currentStep.isFinished = false
-            print("Acquired Points: \(acquiredPoints)")
-            print("Total Points: \(Model.shared.totalPoints)")
-            nextStep()
+        for index in 0 ... currentSteps.count - 1{
+            let step = currentSteps[index]
+            step.update(deltaTime: deltaTime)
+            if (!step.isInterval){
+                if step.addBubble{
+                    nextBubble(step: step)
+                    step.addBubble = false
+                }
+                else if step.createNewStep{
+                    stepsCreated += 1
+                    step.createNewStep = false
+                }
+                step.circle.update(deltaTime: deltaTime)
+            }
+            else{
+                if step.isFinished{
+                    currentSteps.remove(at: 0)
+                }
+            }
         }
         
-        if circle != nil{
-            circle.update(deltaTime: deltaTime)
+        if stepsCreated > currentSteps.count - 1{
+            currentSteps.append(currentPhase.steps[stepsCreated])
         }
-//        circle.update(deltaTime: deltaTime)
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -121,10 +114,10 @@ class GameScene: SKScene {
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
             if self.handle.name == "bubble"{
-                if circle.isPointable{
-                    acquiredPoints += 1
-                    circle.isPointable = false
-                }
+//                if circle.isPointable{
+//                    Model.shared.acumulatedPoints += 1
+//                    circle.isPointable = false
+//                }
 //                circle.isReducing = true
 //                self.drag(node: handle)
             }
@@ -134,7 +127,7 @@ class GameScene: SKScene {
     func touchMoved(toPoint pos : CGPoint) {
         if handle != nil{
             if self.handle.name == "bubble"{
-                self.handle.position = pos
+//                self.handle.position = pos
             }
         }
     }
@@ -156,13 +149,10 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-//                    destroyBubble(location: location)
-//                        bubbles.remove(at: index)
-//                        tunnel.createTunnel(initBubble: bubbles[0], finalBubble: bubbles[1])
-                        
-                    
-                    
-//                    node.removeFromParent()
+                    if !currentSteps[0].isFinished{
+                        currentSteps[0].bubble.explodeBubble()
+                        currentSteps[0].circle.isPointable = false
+                    }
                 }
             }
     }

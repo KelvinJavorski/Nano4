@@ -29,6 +29,7 @@
 		B67FA7C62412D6DA00E99DB9 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C52412D6DA00E99DB9 /* Bubble.swift */; };
 		B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C72412DA7100E99DB9 /* ContactMask.swift */; };
 		B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C92412DAFD00E99DB9 /* GameObject.swift */; };
+		B6C1FDFA2432461000003642 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1FDF92432461000003642 /* Step.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		B67FA7C52412D6DA00E99DB9 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		B67FA7C72412DA7100E99DB9 /* ContactMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMask.swift; sourceTree = "<group>"; };
 		B67FA7C92412DAFD00E99DB9 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		B6C1FDF92432461000003642 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				B67FA7C52412D6DA00E99DB9 /* Bubble.swift */,
 				B6061B97241977CD002DC707 /* Tunnel.swift */,
 				B6061B9D2422E839002DC707 /* Circle.swift */,
+				B6C1FDF92432461000003642 /* Step.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				B67FA7AC240ED6EC00E99DB9 /* GameScene.swift in Sources */,
 				B6061B98241977CD002DC707 /* Tunnel.swift in Sources */,
 				B67FA7AE240ED6EC00E99DB9 /* GameViewController.swift in Sources */,
+				B6C1FDFA2432461000003642 /* Step.swift in Sources */,
 				4256E789241972CF00BC72D7 /* Phase.swift in Sources */,
 				B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */,
 				B6061B9E2422E839002DC707 /* Circle.swift in Sources */,
