@@ -18,6 +18,8 @@ class Circle{
         setupInterval()
     }
     
+    var pointLabel: SKLabelNode!
+    
     var node : SKShapeNode!
     var scene: GameScene!
     var bubble: Bubble!

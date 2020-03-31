@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAnalytics
 import GoogleMobileAds
+import AVFoundation
 
 class MenuViewController: UIViewController, GADInterstitialDelegate {
 
@@ -18,6 +19,7 @@ class MenuViewController: UIViewController, GADInterstitialDelegate {
         
         super.viewDidLoad()
         interstitial = createAndLoadInterstitial()
+        setupMusic()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,6 +36,20 @@ class MenuViewController: UIViewController, GADInterstitialDelegate {
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial
+    }
+    
+    func setupMusic(){
+        let sound = Bundle.main.path(forResource: "Neon_Storm", ofType: "mp3")
+        do {
+            Model.shared.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch{
+            print(error)
+        }
+    }
+
+    @IBAction func playMusic(_ sender: Any) {
+        Model.shared.audioPlayer.play()
     }
 
     @IBAction func showAd(_ sender: Any) {

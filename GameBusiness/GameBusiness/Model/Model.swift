@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 let PHASES_VEL = CGFloat(3)
 
@@ -18,11 +19,12 @@ class Model {
     let interval = 0.2
     var totalPoints = 0
     var acumulatedPoints = 0
+    var audioPlayer = AVAudioPlayer()
     lazy var phases: [Phase] = [
         Phase(music: "Neon_Storm.mp3", steps:
         [
             // Eu usei as coordenadas como porcentagens [-100, 100]
-//            Step(TimeInterval(2)),
+            Step(TimeInterval(2)),
             Step(s0: CGPoint(x: 50.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
             Step(s0: CGPoint(x: 70.0, y: -70.0 ),

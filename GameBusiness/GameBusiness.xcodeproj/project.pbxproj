@@ -30,6 +30,8 @@
 		B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C72412DA7100E99DB9 /* ContactMask.swift */; };
 		B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C92412DAFD00E99DB9 /* GameObject.swift */; };
 		B6C1FDFA2432461000003642 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1FDF92432461000003642 /* Step.swift */; };
+		B6C1FDFC2433882900003642 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C1FDFB2433882900003642 /* AVFoundation.framework */; };
+		B6C1FDFF243388A500003642 /* Neon_Storm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6C1FDFE243388A500003642 /* Neon_Storm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		B67FA7C72412DA7100E99DB9 /* ContactMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMask.swift; sourceTree = "<group>"; };
 		B67FA7C92412DAFD00E99DB9 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		B6C1FDF92432461000003642 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		B6C1FDFB2433882900003642 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B6C1FDFE243388A500003642 /* Neon_Storm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Neon_Storm.mp3; path = GameBusiness/View/Assets.xcassets/Neon_Storm.dataset/Neon_Storm.mp3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C1FDFC2433882900003642 /* AVFoundation.framework in Frameworks */,
 				489254160292D0D7E68E856C /* Pods_GameBusiness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +112,7 @@
 		B6061B9624195EA6002DC707 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6C1FDFD2433886900003642 /* Sounds */,
 				B67FA7A7240ED6EC00E99DB9 /* GameScene.sks */,
 				B6061B9224195C04002DC707 /* SnowParticle.sks */,
 				B67FA7AF240ED6EC00E99DB9 /* Main.storyboard */,
@@ -151,6 +157,14 @@
 			path = GameBusiness;
 			sourceTree = "<group>";
 		};
+		B6C1FDFD2433886900003642 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B6C1FDFE243388A500003642 /* Neon_Storm.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		C2E7238168380611E3ECA15B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +177,7 @@
 		DB28AC069E298E8822549600 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6C1FDFB2433882900003642 /* AVFoundation.framework */,
 				42414BC224230496008B36C3 /* GoogleMobileAds */,
 				42414BC024230431008B36C3 /* Google-Mobile-Ads-SDK */,
 				42414BBE24230414008B36C3 /* LICENSE */,
@@ -232,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C1FDFF243388A500003642 /* Neon_Storm.mp3 in Resources */,
 				B67FA7B1240ED6EC00E99DB9 /* Main.storyboard in Resources */,
 				B67FA7A8240ED6EC00E99DB9 /* GameScene.sks in Resources */,
 				B67FA7B3240ED6EE00E99DB9 /* Assets.xcassets in Resources */,
