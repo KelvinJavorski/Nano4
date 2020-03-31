@@ -18,35 +18,45 @@ class GameScene: SKScene {
     var height : CGFloat!
     var width : CGFloat!
     
-    var circle : Circle!
-    var bubble : Bubble!
-    var secondBubble: Bubble!
+    var id: Int = 0
+    var currentSteps: [Step] = [Step]()
     
-    var currentStep : Step!
-    var currentBubbleIndex : Int = 0
-    var currentBubbleKill : Int = 0
-    var stepCurrentTime = TimeInterval()
+    var stepsCompleted : Int = 0
+    var numberOfBubbles : Int = 0
+    var stepsCreated : Int = 0
     
     var lastTime: TimeInterval = TimeInterval(0)
-    
+        
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    override func didMove(to view: SKView) {
+    override func sceneDidLoad() {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
         initPhase()
     }
     
+    override func didMove(to view: SKView) {
+//        height = self.scene?.size.height
+//        width = self.scene?.size.width
+//        currentPhase = Model.shared.phases[0]
+//        initPhase()
+    }
+    
     func initPhase(){
-        currentStep = self.currentPhase.steps[currentBubbleIndex]
-        if (!currentStep.isInterval){
-            bubble = self.createBubble(position: currentStep.position0, isFixed: false)
-            bubbles.append(bubble)
-            circle = Circle(scene: self, bubble: bubble, duration: currentStep.circleDuration)
-            circles.append(circle)
-        }
+        currentSteps.append(contentsOf: currentPhase.steps)
+//        currentSteps[0].id = id
+//        id += 1
+//        if (!currentSteps[0].isInterval){
+//            buildBubble(nextStep: currentSteps[0])
+//        }
+//        else{
+//            currentSteps[0].id = id
+//        }
+
+//        id += 1
+//        stepsCreated += 1
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
@@ -66,32 +76,17 @@ class GameScene: SKScene {
     }
     
     func buildBubble(nextStep: Step){
-        bubble = self.createBubble(position: nextStep.position0, isFixed: false)
-        bubbles.append(bubble)
-        circle = Circle(scene: self, bubble: bubble, duration: nextStep.circleDuration)
-        circles.append(circle)
+        nextStep.bubble = self.createBubble(position: nextStep.position0, isFixed: false)
+        nextStep.circle = Circle(scene: self, bubble: nextStep.bubble, duration: nextStep.circleDuration)
     }
     
-    func nextStep(){
-        if (currentBubbleIndex < self.currentPhase.steps.count - 1){
-            if !currentStep.isInterval{
-                bubbles[0].node.removeFromParent()
-                bubbles.remove(at: 0)
-                circles[0].node.removeFromParent()
-                circles.remove(at: 0)
-            }
-            currentBubbleIndex += 1
-            currentStep = currentPhase.steps[currentBubbleIndex]
+    func nextBubble(step: Step){
+        if stepsCreated < self.currentPhase.steps.count - 2 {
+            step.addBubble = false
+            buildBubble(nextStep: step)
+//            stepsCreated += 1
         }
-    }
-    
-    func nextBubble(){
-        if (currentBubbleIndex < self.currentPhase.steps.count - 1){
-            let nextStep = currentPhase.steps[currentBubbleIndex + 1]
-            if !nextStep.isInterval{
-                buildBubble(nextStep: nextStep)
-            }
-        }
+        
     }
     
     
@@ -108,23 +103,35 @@ class GameScene: SKScene {
             deltaTime = 0.1
         }
         
-        currentStep.update(deltaTime: deltaTime)
-        
-        if (currentStep.addNewBubble){
-            currentStep.addNewBubble = false
-            nextBubble()
+        for index in 0 ... stepsCreated{
+            let step = currentSteps[index]
+            step.update(deltaTime: deltaTime)
+            if (!step.isInterval){
+                if step.addBubble{
+                    nextBubble(step: step)
+                    step.addBubble = false
+                }
+                else if step.addNewBubble{
+                    stepsCreated += 1
+                    step.addNewBubble = false
+                }
+//                if step.isFinished{
+//                    stepsCreated -= 1
+//                    currentSteps.remove(at: 0)
+//                }
+                step.circle.update(deltaTime: deltaTime)
+            }
+            
         }
         
-        if (currentStep.isFinished){
-            currentStep.isFinished = false
-            print("Acquired Points: \(Model.shared.acumulatedPoints)")
-            print("Total Points: \(Model.shared.totalPoints)")
-            nextStep()
-        }
-        
-        if circle != nil{
-            circle.update(deltaTime: deltaTime)
-        }
+//        currentSteps.forEach { (step) in
+//            if (!step.isInterval){
+//                if step.addNewBubble{
+//                    nextBubble(step: step)
+//                }
+//            }
+//            step.update(deltaTime: deltaTime)
+//        }
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -132,10 +139,10 @@ class GameScene: SKScene {
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
             if self.handle.name == "bubble"{
-                if circle.isPointable{
-                    Model.shared.acumulatedPoints += 1
-                    circle.isPointable = false
-                }
+//                if circle.isPointable{
+//                    Model.shared.acumulatedPoints += 1
+//                    circle.isPointable = false
+//                }
 //                circle.isReducing = true
 //                self.drag(node: handle)
             }
@@ -167,9 +174,9 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    if !currentStep.isFinished{
-                        bubbles[0].explodeBubble()
-                        circles[0].isPointable = false
+                    if !currentSteps[0].isFinished{
+                        currentSteps[0].bubble.explodeBubble()
+                        currentSteps[0].circle.isPointable = false
                     }
                 }
             }

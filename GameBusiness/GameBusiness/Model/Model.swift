@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-let PHASES_VEL = CGFloat(1.60)
+let PHASES_VEL = CGFloat(2.7)
 
 class Model {
     
@@ -22,15 +22,15 @@ class Model {
         Phase(music: "Neon_Storm.mp3", steps:
         [
             // Eu usei as coordenadas como porcentagens [-100, 100]
-            Step(TimeInterval(2)),
+//            Step(TimeInterval(2)),
             Step(s0: CGPoint(x: 50.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            Step(s0: CGPoint(x: 700.0, y: -70.0 ),
+            Step(s0: CGPoint(x: 70.0, y: -70.0 ),
                  s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
             Step(s0: CGPoint(x: 80.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 10.0, y: -90.0 ),
+            Step(TimeInterval(1)),
+            Step(s0: CGPoint(x: -10.0, y: -90.0 ),
                  s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
             
             Step(s0: CGPoint(x: -30.0, y: -80.0 ),
