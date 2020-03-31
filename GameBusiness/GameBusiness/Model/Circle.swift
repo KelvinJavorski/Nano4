@@ -87,6 +87,11 @@ class Circle{
             isPointable = false
             Model.shared.totalPoints += 1
         }
+//
+//        var tempo = 120.0 // seg
+//        var velocidade = 200.0 / tempo
+//        var deslocamento = deltaTime * velocidade
+//        var tamanho -= deslocamento
         
         let scale : CGFloat = 0.5
         node.setScale(node.xScale - scale * CGFloat(deltaTime))
