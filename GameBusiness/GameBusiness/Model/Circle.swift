@@ -59,7 +59,7 @@ class Circle{
         let circle = SKShapeNode(circleOfRadius: radius * 2)
         circle.strokeColor = UIColor.white
         circle.lineWidth = 5
-        circle.zPosition = -1
+        circle.zPosition = 2
         circle.position = bubble.node.position
         
         self.node = circle
@@ -74,8 +74,11 @@ class Circle{
     }
     
     func reduce(deltaTime: TimeInterval){
-        reduceCurrentTime += deltaTime
+//        reduceCurrentTime += deltaTime
+//        let increaseVelocity = 0.5 / reduceDuration
+//        let increaseAmount : CGFloat = CGFloat(deltaTime * increaseVelocity)
         
+//        bubble.node.alpha += increaseAmount
         var parcial = CGFloat(reduceCurrentTime / reduceDuration)
         if parcial >= 0.6 && parcial <= 1{
             isPointable = true

@@ -18,6 +18,7 @@ class GameScene: SKScene {
     var height : CGFloat!
     var width : CGFloat!
     
+    var background : SKSpriteNode!
     var pointsLabel : SKLabelNode!
     
     var id: Int = 0
@@ -36,7 +37,11 @@ class GameScene: SKScene {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
-      
+        background = SKSpriteNode(imageNamed: "background")
+        background.size = self.size
+        background.position = CGPoint(x: 0, y: 0)
+        background.zPosition = -1
+        addChild(background)
         initPhase()
     }
     
