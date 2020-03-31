@@ -18,7 +18,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OiG-OV-NUb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="bte-91-A3S">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="bte-91-A3S">
                                 <rect key="frame" x="75" y="316" width="264" height="264"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bte-91-A3S" secondAttribute="height" multiplier="1:1" id="isd-Zx-K76"/>
@@ -29,11 +29,12 @@
                         <constraints>
                             <constraint firstItem="OiG-OV-NUb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="1Ib-tC-P2E"/>
                             <constraint firstAttribute="bottom" secondItem="OiG-OV-NUb" secondAttribute="bottom" id="Ccs-Zh-3dd"/>
+                            <constraint firstItem="OiG-OV-NUb" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="JL0-Td-nfO"/>
                             <constraint firstItem="bte-91-A3S" firstAttribute="leading" secondItem="OiG-OV-NUb" secondAttribute="leading" constant="75" id="hTd-dp-PLK"/>
                             <constraint firstItem="OiG-OV-NUb" firstAttribute="trailing" secondItem="bte-91-A3S" secondAttribute="trailing" constant="75" id="jQm-qK-csv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OiG-OV-NUb" secondAttribute="trailing" id="ki2-v1-IgU"/>
                             <constraint firstItem="OiG-OV-NUb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pwN-oO-kAW"/>
-                            <constraint firstItem="bte-91-A3S" firstAttribute="centerY" secondItem="OiG-OV-NUb" secondAttribute="centerY" id="tSa-f7-yPA"/>
+                            <constraint firstAttribute="top" secondItem="OiG-OV-NUb" secondAttribute="top" id="slN-AF-HHv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

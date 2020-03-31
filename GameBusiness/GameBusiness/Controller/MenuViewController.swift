@@ -30,8 +30,7 @@ class MenuViewController: UIViewController, GADInterstitialDelegate {
         }
     }
     func createAndLoadInterstitial() -> GADInterstitial {
-        // ca-app-pub-2334129422444825/8121186261
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-2334129422444825/3053304792")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial
