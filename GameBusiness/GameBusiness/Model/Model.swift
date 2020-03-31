@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-let PHASES_VEL = CGFloat(2.7)
+let PHASES_VEL = CGFloat(3)
 
 class Model {
     
@@ -29,7 +29,6 @@ class Model {
                  s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
             Step(s0: CGPoint(x: 80.0, y: -80.0 ),
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            Step(TimeInterval(1)),
             Step(s0: CGPoint(x: -10.0, y: -90.0 ),
                  s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
             
