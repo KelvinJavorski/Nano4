@@ -30,7 +30,7 @@ class Circle{
     var reduceCurrentTime = TimeInterval()
     var isReducing = true
     
-    var isPointable = true
+    var isPointable = false
     
     var increaseDuration: TimeInterval!
     var increaseCurrentTime = TimeInterval()

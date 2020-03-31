@@ -18,14 +18,16 @@ class GameScene: SKScene {
     var height : CGFloat!
     var width : CGFloat!
     
+    var pointsLabel : SKLabelNode!
+    
     var id: Int = 0
-       var currentSteps: [Step] = [Step]()
-       
-       var stepsCompleted : Int = 0
-       var numberOfBubbles : Int = 0
-       var stepsCreated : Int = 0
-       
-       var lastTime: TimeInterval = TimeInterval(0)
+    var currentSteps: [Step] = [Step]()
+
+    var stepsCompleted : Int = 0
+    var numberOfBubbles : Int = 0
+    var stepsCreated : Int = 0
+
+    var lastTime: TimeInterval = TimeInterval(0)
         
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -34,16 +36,22 @@ class GameScene: SKScene {
         height = self.scene?.size.height
         width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
+      
         initPhase()
     }
     
     func initPhase(){
+        pointsLabel = SKLabelNode(text: "0")
+        pointsLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        pointsLabel.fontSize = 40
+        print(frame.maxY)
+        addChild(pointsLabel)
         currentSteps.append(currentPhase.steps[0])
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
-        let usufulHeight = self.height / 200
-        let usufulWidth = self.width / 200
+        let usufulHeight = (self.height - 60) / 200
+        let usufulWidth = (self.width - 40 ) / 200
         let fixedPosition = CGPoint(x: position.x * usufulWidth, y: position.y * usufulHeight)
 
         let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
@@ -132,6 +140,8 @@ class GameScene: SKScene {
                 if step.circle != nil{
                     if step.circle.isPointable{
                         Model.shared.acumulatedPoints += 1
+                        pointsLabel.text = String(Model.shared.acumulatedPoints)
+                        step.circle.isPointable = false
                         step.circle.isReducing = true
                     }
                 }
