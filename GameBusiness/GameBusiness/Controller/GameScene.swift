@@ -37,26 +37,8 @@ class GameScene: SKScene {
         initPhase()
     }
     
-    override func didMove(to view: SKView) {
-//        height = self.scene?.size.height
-//        width = self.scene?.size.width
-//        currentPhase = Model.shared.phases[0]
-//        initPhase()
-    }
-    
     func initPhase(){
-        currentSteps.append(contentsOf: currentPhase.steps)
-//        currentSteps[0].id = id
-//        id += 1
-//        if (!currentSteps[0].isInterval){
-//            buildBubble(nextStep: currentSteps[0])
-//        }
-//        else{
-//            currentSteps[0].id = id
-//        }
-
-//        id += 1
-//        stepsCreated += 1
+        currentSteps.append(currentPhase.steps[0])
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
@@ -75,16 +57,14 @@ class GameScene: SKScene {
         return bubble
     }
     
-    func buildBubble(nextStep: Step){
-        nextStep.bubble = self.createBubble(position: nextStep.position0, isFixed: false)
-        nextStep.circle = Circle(scene: self, bubble: nextStep.bubble, duration: nextStep.circleDuration)
+    func buildBubble(step: Step){
+        step.bubble = self.createBubble(position: step.position0, isFixed: false)
+        step.circle = Circle(scene: self, bubble: step.bubble, duration: step.circleDuration)
     }
     
     func nextBubble(step: Step){
-        if stepsCreated < self.currentPhase.steps.count - 2 {
-            step.addBubble = false
-            buildBubble(nextStep: step)
-//            stepsCreated += 1
+        if stepsCreated < self.currentPhase.steps.count - 1 {
+            buildBubble(step: step)
         }
         
     }
@@ -103,7 +83,7 @@ class GameScene: SKScene {
             deltaTime = 0.1
         }
         
-        for index in 0 ... stepsCreated{
+        for index in 0 ... currentSteps.count - 1{
             let step = currentSteps[index]
             step.update(deltaTime: deltaTime)
             if (!step.isInterval){
@@ -111,27 +91,22 @@ class GameScene: SKScene {
                     nextBubble(step: step)
                     step.addBubble = false
                 }
-                else if step.addNewBubble{
+                else if step.createNewStep{
                     stepsCreated += 1
-                    step.addNewBubble = false
+                    step.createNewStep = false
                 }
-//                if step.isFinished{
-//                    stepsCreated -= 1
-//                    currentSteps.remove(at: 0)
-//                }
                 step.circle.update(deltaTime: deltaTime)
             }
-            
+            else{
+                if step.isFinished{
+                    currentSteps.remove(at: 0)
+                }
+            }
         }
         
-//        currentSteps.forEach { (step) in
-//            if (!step.isInterval){
-//                if step.addNewBubble{
-//                    nextBubble(step: step)
-//                }
-//            }
-//            step.update(deltaTime: deltaTime)
-//        }
+        if stepsCreated > currentSteps.count - 1{
+            currentSteps.append(currentPhase.steps[stepsCreated])
+        }
     }
     
     func touchDown(atPoint pos : CGPoint) {
