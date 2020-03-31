@@ -98,15 +98,29 @@ class GameScene: SKScene {
                 step.circle.update(deltaTime: deltaTime)
             }
             else{
-                if step.isFinished{
-                    currentSteps.remove(at: 0)
+                if step.intervalIsFinished{
+                    stepsCreated += 1
+                    step.intervalIsFinished = false
                 }
             }
         }
         
-        if stepsCreated > currentSteps.count - 1{
+        if stepsCreated > currentSteps.count - 1 && stepsCreated < currentPhase.count{
             currentSteps.append(currentPhase.steps[stepsCreated])
         }
+    }
+    
+    func searchClickedBubble(pos: CGPoint) -> Step{
+        var step: Step!
+        for index in 0 ... currentSteps.count - 1{
+            if !currentSteps[index].isFinished && !currentSteps[index].isInterval{
+                if currentSteps[index].bubble.node.contains(pos){
+                    step = currentSteps[index]
+                    return step
+                }
+            }
+        }
+        return step
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -114,11 +128,13 @@ class GameScene: SKScene {
         self.handle = nodeArray.first as? SKSpriteNode
         if handle != nil{
             if self.handle.name == "bubble"{
-//                if circle.isPointable{
-//                    Model.shared.acumulatedPoints += 1
-//                    circle.isPointable = false
-//                }
-//                circle.isReducing = true
+                let step = searchClickedBubble(pos: pos)
+                if step.circle != nil{
+                    if step.circle.isPointable{
+                        Model.shared.acumulatedPoints += 1
+                        step.circle.isReducing = true
+                    }
+                }
 //                self.drag(node: handle)
             }
         }
@@ -149,9 +165,10 @@ class GameScene: SKScene {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
                 if node.name == "bubble" {
-                    if !currentSteps[0].isFinished{
-                        currentSteps[0].bubble.explodeBubble()
-                        currentSteps[0].circle.isPointable = false
+                    let step = searchClickedBubble(pos: location)
+                    if !step.isFinished{
+                        step.bubble.explodeBubble()
+                        step.circle.isPointable = false
                     }
                 }
             }

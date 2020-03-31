@@ -37,6 +37,7 @@ class Step {
     var createNewStep: Bool = false
     var addBubble: Bool = true
     var stepWasCreated: Bool = false
+    var intervalIsFinished : Bool = false
     
     func update(deltaTime: TimeInterval){
         currentTime += deltaTime
@@ -55,6 +56,7 @@ class Step {
             parcial = 1
             currentTime = 0
             isFinished = true
+            intervalIsFinished = true
             if(!isInterval){
                 bubble.node.removeFromParent()
                 circle.node.removeFromParent()
