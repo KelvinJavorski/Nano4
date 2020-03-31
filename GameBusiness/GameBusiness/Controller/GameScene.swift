@@ -19,13 +19,13 @@ class GameScene: SKScene {
     var width : CGFloat!
     
     var id: Int = 0
-    var currentSteps: [Step] = [Step]()
-    
-    var stepsCompleted : Int = 0
-    var numberOfBubbles : Int = 0
-    var stepsCreated : Int = 0
-    
-    var lastTime: TimeInterval = TimeInterval(0)
+       var currentSteps: [Step] = [Step]()
+       
+       var stepsCompleted : Int = 0
+       var numberOfBubbles : Int = 0
+       var stepsCreated : Int = 0
+       
+       var lastTime: TimeInterval = TimeInterval(0)
         
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -105,7 +105,7 @@ class GameScene: SKScene {
             }
         }
         
-        if stepsCreated > currentSteps.count - 1 && stepsCreated < currentPhase.count{
+        if stepsCreated > currentSteps.count - 1 && stepsCreated < currentPhase.steps.count{
             currentSteps.append(currentPhase.steps[stepsCreated])
         }
     }
@@ -169,6 +169,7 @@ class GameScene: SKScene {
                     if !step.isFinished{
                         step.bubble.explodeBubble()
                         step.circle.isPointable = false
+                        step.circle.node.removeFromParent()
                     }
                 }
             }
