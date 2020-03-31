@@ -22,8 +22,6 @@ class Step {
         self.stepDuration = duration
     }
     
-    var id: Int!
-    
     var isInterval: Bool = false
     var isFinished: Bool = false
     var position0: CGPoint!
@@ -32,16 +30,13 @@ class Step {
     var circle: Circle!
     
     var stepDuration: TimeInterval!
-    var circleDuration: TimeInterval = TimeInterval(1.5)
+    var circleDuration: TimeInterval = TimeInterval(1)
     var currentTime = TimeInterval()
     var nextBubbleCurrentTime = TimeInterval()
     
-    var addNewBubble: Bool = false
+    var createNewStep: Bool = false
     var addBubble: Bool = true
-    
-    //debug
-    var firstTime = true
-    var qtd = 0
+    var stepWasCreated: Bool = false
     
     func update(deltaTime: TimeInterval){
         currentTime += deltaTime
@@ -49,8 +44,9 @@ class Step {
         var parcial = currentTime / circleDuration
         var nextBubbleParcial = nextBubbleCurrentTime / stepDuration!
         
-        if nextBubbleParcial >= 1 && !addNewBubble{
-            addNewBubble = true
+        if nextBubbleParcial >= 1 && !stepWasCreated{
+            stepWasCreated = true
+            createNewStep = true
             nextBubbleParcial = 1
             nextBubbleCurrentTime = 0
 //
