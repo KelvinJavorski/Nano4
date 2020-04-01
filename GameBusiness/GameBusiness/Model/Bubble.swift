@@ -27,9 +27,8 @@ class Bubble : GameObject {
             body.categoryBitMask = ContactMask.button.rawValue
             body.collisionBitMask = ContactMask.wall.rawValue
             body.contactTestBitMask = ContactMask.button.rawValue
-            self.node.zPosition = 0
+            self.node.zPosition = 3
         }
-        node.alpha = 0.5
     }
     
     func explodeBubble(){

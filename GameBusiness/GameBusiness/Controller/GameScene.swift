@@ -40,23 +40,23 @@ class GameScene: SKScene {
         background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: 0, y: 0)
-        background.zPosition = -1
+        background.zPosition = -10
         addChild(background)
         initPhase()
     }
     
     func initPhase(){
         pointsLabel = SKLabelNode(text: "0")
-        pointsLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
-        pointsLabel.fontSize = 40
+        pointsLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
+        pointsLabel.fontSize = 50
         print(frame.maxY)
         addChild(pointsLabel)
         currentSteps.append(currentPhase.steps[0])
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
-        let usufulHeight = (self.height - 60) / 200
-        let usufulWidth = (self.width - 40 ) / 200
+        let usufulHeight = (self.height - 100) / 200
+        let usufulWidth = (self.width - 100 ) / 200
         let fixedPosition = CGPoint(x: position.x * usufulWidth, y: position.y * usufulHeight)
 
         let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))

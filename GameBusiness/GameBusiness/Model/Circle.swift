@@ -59,7 +59,7 @@ class Circle{
         let circle = SKShapeNode(circleOfRadius: radius * 2)
         circle.strokeColor = UIColor.white
         circle.lineWidth = 5
-        circle.zPosition = 2
+        circle.zPosition = -1
         circle.position = bubble.node.position
         
         self.node = circle
@@ -74,7 +74,7 @@ class Circle{
     }
     
     func reduce(deltaTime: TimeInterval){
-//        reduceCurrentTime += deltaTime
+        reduceCurrentTime += deltaTime
 //        let increaseVelocity = 0.5 / reduceDuration
 //        let increaseAmount : CGFloat = CGFloat(deltaTime * increaseVelocity)
         
