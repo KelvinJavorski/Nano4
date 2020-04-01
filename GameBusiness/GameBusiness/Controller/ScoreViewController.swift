@@ -28,6 +28,9 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Atualiza a cutódia monetária do usuário
+        Model.shared.acumulatedPoints += Model.shared.points
+        
         arredondaBotoes()
         refreshLabels()
         rewardedAd = createAndLoadRewardedAd()
@@ -97,8 +100,8 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-        // Atualiza a cutódia monetária do usuário
-        Model.shared.acumulatedPoints += Model.shared.points * 2
+        // Atualiza a cutódia monetária do usuário. Ele já recebe metade quando a tela carrega.
+        Model.shared.acumulatedPoints += Model.shared.points
     }
     /// Tells the delegate that the rewarded ad was presented.
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
