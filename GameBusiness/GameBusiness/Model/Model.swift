@@ -17,8 +17,8 @@ class Model {
     static let shared = Model()
     
     let interval = 0.2
-    var totalPoints = 0
-    var acumulatedPoints = 0
+    var points : Int16 = 0
+    var acumulatedPoints : Int16 = 0
     var audioPlayer = AVAudioPlayer()
     lazy var phases: [Phase] = [
         Phase(music: "Neon_Storm.mp3", steps:

@@ -90,7 +90,7 @@ class Circle{
             isReducing = false
             isIncreasing = true
             isPointable = false
-            Model.shared.totalPoints += 1
+            Model.shared.points += 1
         }
 //
 //        var tempo = 120.0 // seg

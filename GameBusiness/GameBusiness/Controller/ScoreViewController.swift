@@ -11,6 +11,9 @@ import GoogleMobileAds
 
 class ScoreViewController: UIViewController, GADRewardedAdDelegate {
 
+    @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var starsLabel: UILabel!
+    
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var doublePointsButton: UIButton!
@@ -23,7 +26,30 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
         super.viewDidLoad()
         
         arredondaBotoes()
+        refreshLabels()
         rewardedAd = createAndLoadRewardedAd()
+    }
+    
+    func refreshLabels(){
+        refreshMoney()
+        refreshStars()
+    }
+    
+    func refreshMoney(){
+        moneyLabel.text = "💰 " + String(Model.shared.points)
+    }
+    
+    func refreshStars(){
+        let pontosParaCadaEstrela : Int16 = 10
+        var pontos : Int16 = Model.shared.points
+        starsLabel.text = ""
+        for _ in 0..<5 {
+            if pontos >= pontosParaCadaEstrela {
+                starsLabel.text = String(starsLabel.text!) + "⭐️"
+                pontos -= pontosParaCadaEstrela
+            }
+        }
+        
     }
     
     func arredondaBotoes() {

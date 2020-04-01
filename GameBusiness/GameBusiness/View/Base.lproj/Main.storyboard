@@ -16,19 +16,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBG-Qs-rUT" userLabel="Container">
-                                <rect key="frame" x="30" y="218" width="315" height="231"/>
+                                <rect key="frame" x="30" y="214.5" width="315" height="238.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubble Dance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gq-ml-VRi">
-                                        <rect key="frame" x="0.0" y="30" width="315" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <rect key="frame" x="0.0" y="30" width="315" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aBC-HB-uzA" userLabel="Menu">
-                                        <rect key="frame" x="30" y="123.5" width="255" height="137.5"/>
+                                        <rect key="frame" x="30" y="131" width="255" height="137.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-kZ-yms">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="63.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="7P8-kZ-yms" secondAttribute="height" multiplier="4:1" id="e83-zp-wgb"/>
                                                 </constraints>
@@ -40,15 +40,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVu-fT-HVe">
-                                                <rect key="frame" x="0.0" y="74" width="255" height="63.5"/>
+                                                <rect key="frame" x="0.0" y="73.5" width="255" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="zVu-fT-HVe" secondAttribute="height" multiplier="4:1" id="clQ-33-YJy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <state key="normal" title="Apoiar" backgroundImage="background"/>
-                                                <connections>
-                                                    <action selector="showAd:" destination="cxa-O4-5W1" eventType="touchUpInside" id="tnf-Cw-f9u"/>
-                                                </connections>
+                                                <state key="normal" title="Sobre" backgroundImage="background"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -64,11 +61,19 @@
                                     <constraint firstAttribute="bottom" secondItem="aBC-HB-uzA" secondAttribute="bottom" constant="-30" id="dDk-Ux-N4A"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💰 999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02G-5g-wYI">
+                                <rect key="frame" x="233" y="20" width="112" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.46986213571652286" green="0.66702127029363922" blue="0.66763166243654815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vBG-Qs-rUT" firstAttribute="centerY" secondItem="515-Xk-kzT" secondAttribute="centerY" id="04W-IJ-e0h"/>
+                            <constraint firstItem="515-Xk-kzT" firstAttribute="trailing" secondItem="02G-5g-wYI" secondAttribute="trailing" constant="30" id="1M0-fX-w67"/>
                             <constraint firstItem="vBG-Qs-rUT" firstAttribute="trailing" secondItem="515-Xk-kzT" secondAttribute="trailing" constant="-30" id="Jnv-iu-i1q"/>
+                            <constraint firstItem="02G-5g-wYI" firstAttribute="top" secondItem="515-Xk-kzT" secondAttribute="top" constant="20" id="Kih-bV-pkI"/>
                             <constraint firstItem="vBG-Qs-rUT" firstAttribute="height" relation="lessThanOrEqual" secondItem="515-Xk-kzT" secondAttribute="height" id="RlK-xr-ISc"/>
                             <constraint firstItem="vBG-Qs-rUT" firstAttribute="leading" secondItem="515-Xk-kzT" secondAttribute="leading" constant="30" id="Tx4-NB-A81"/>
                         </constraints>
@@ -77,6 +82,7 @@
                     <connections>
                         <outlet property="apoiarButton" destination="zVu-fT-HVe" id="CTa-8h-Uys"/>
                         <outlet property="jogarButton" destination="7P8-kZ-yms" id="ghy-Pt-adw"/>
+                        <outlet property="moneyLabel" destination="02G-5g-wYI" id="MPn-yt-4R4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTV-sv-SQs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -220,8 +226,10 @@
                     <connections>
                         <outlet property="doublePointsButton" destination="N3c-8u-9Ok" id="CRC-r7-qR4"/>
                         <outlet property="homeButton" destination="ean-Vn-VLw" id="Xqz-Gp-fo9"/>
+                        <outlet property="moneyLabel" destination="nQn-ke-9N1" id="5zV-Xw-bKu"/>
                         <outlet property="nextLevelButton" destination="kYw-DJ-nPC" id="XAj-iK-R2a"/>
                         <outlet property="playAgainButton" destination="zKt-Q6-9b0" id="Veq-Zh-SsN"/>
+                        <outlet property="starsLabel" destination="rqb-4O-coZ" id="jxy-Sf-BdF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaP-1h-xln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
