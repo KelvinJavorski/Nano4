@@ -46,6 +46,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="Sobre" backgroundImage="background"/>
+                                                <connections>
+                                                    <segue destination="I5E-cV-fHU" kind="presentation" modalPresentationStyle="fullScreen" id="2Y1-6Y-pBl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -124,6 +127,9 @@
                                 <state key="normal" image="house" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                 </state>
+                                <connections>
+                                    <segue destination="cxa-O4-5W1" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="E36-7m-IHn"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZH-4Y-BCG" userLabel="BotoesInferior">
                                 <rect key="frame" x="30" y="583" width="315" height="64"/>
@@ -146,9 +152,12 @@
                                             <constraint firstAttribute="width" secondItem="zKt-Q6-9b0" secondAttribute="height" multiplier="1:1" id="0Gf-z0-2vr"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="0.90389554794520544" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="arrow.uturn.left.circle" catalog="system">
+                                        <state key="normal" image="arrow.counterclockwise.circle" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="presentation" modalPresentationStyle="fullScreen" id="2Bh-bt-mfg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3c-8u-9Ok" userLabel="Reward">
                                         <rect key="frame" x="84" y="0.0" width="147" height="64"/>
@@ -238,10 +247,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise.circle" catalog="system" width="64" height="60"/>
         <image name="arrow.right.circle" catalog="system" width="64" height="60"/>
-        <image name="arrow.uturn.left.circle" catalog="system" width="64" height="60"/>
         <image name="background" width="414" height="896"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="video" catalog="system" width="64" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Bh-bt-mfg"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,9 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     @IBOutlet weak var doublePointsButton: UIButton!
     @IBOutlet weak var nextLevelButton: UIButton!
     
+    // Variável que define a tranformação de pontos em estrelas
+    let pontosParaCadaEstrela : Int16 = 15
+    
     /// The rewarded video ad.
     var rewardedAd: GADRewardedAd?
     
@@ -40,13 +43,17 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     }
     
     func refreshStars(){
-        let pontosParaCadaEstrela : Int16 = 10
         var pontos : Int16 = Model.shared.points
-        starsLabel.text = ""
-        for _ in 0..<5 {
-            if pontos >= pontosParaCadaEstrela {
-                starsLabel.text = String(starsLabel.text!) + "⭐️"
-                pontos -= pontosParaCadaEstrela
+        
+        if pontos > pontosParaCadaEstrela * 5 {
+            starsLabel.text = "⭐️⭐️⭐️⭐️⭐️"
+        } else {
+            starsLabel.text = ""
+            for _ in 0..<5 {
+                if pontos >= pontosParaCadaEstrela {
+                    starsLabel.text = String(starsLabel.text!) + "⭐️"
+                    pontos -= pontosParaCadaEstrela
+                }
             }
         }
         
@@ -89,7 +96,9 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-      print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        // Atualiza a cutódia monetária do usuário
+        Model.shared.acumulatedPoints += Model.shared.points * 2
     }
     /// Tells the delegate that the rewarded ad was presented.
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
@@ -97,11 +106,12 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     }
     /// Tells the delegate that the rewarded ad was dismissed.
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
-        self.rewardedAd = createAndLoadRewardedAd()
+        print("Ad dismissed")
     }
     /// Tells the delegate that the rewarded ad failed to present.
     func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
       print("Rewarded ad failed to present.")
+        
     }
     
     /*
