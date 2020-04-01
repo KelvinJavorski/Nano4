@@ -24,10 +24,8 @@ class GameScene: SKScene {
     var id: Int = 0
     var currentSteps: [Step] = [Step]()
 
-    var stepsCompleted : Int = 0
-    var numberOfBubbles : Int = 0
     var stepsCreated : Int = 0
-
+    var reset : SKLabelNode!
     var lastTime: TimeInterval = TimeInterval(0)
         
     private var label : SKLabelNode?
@@ -51,7 +49,15 @@ class GameScene: SKScene {
         pointsLabel.fontSize = 50
         print(frame.maxY)
         addChild(pointsLabel)
+        
+        resetButton()
         currentSteps.append(currentPhase.steps[0])
+    }
+    
+    func resetButton(){
+        reset = childNode(withName: "reset") as? SKLabelNode
+        reset.color = UIColor.red
+        reset.name = "reset"
     }
     
     func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
@@ -186,6 +192,9 @@ class GameScene: SKScene {
                         step.circle.isPointable = false
                         step.circle.node.removeFromParent()
                     }
+                }
+                else if node.name == "reset"{
+                    
                 }
             }
     }
