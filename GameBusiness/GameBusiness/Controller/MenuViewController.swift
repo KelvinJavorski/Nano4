@@ -14,12 +14,24 @@ import AVFoundation
 class MenuViewController: UIViewController, GADInterstitialDelegate {
 
     var interstitial: GADInterstitial!
+    @IBOutlet weak var jogarButton: UIButton!
+    @IBOutlet weak var apoiarButton: UIButton!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        arredondaBotoes()
         interstitial = createAndLoadInterstitial()
         setupMusic()
+    }
+    
+    func arredondaBotoes() {
+        
+        jogarButton.clipsToBounds = true
+        apoiarButton.clipsToBounds = true
+        
+        jogarButton.layer.cornerRadius = jogarButton.frame.size.height/3
+        apoiarButton.layer.cornerRadius = apoiarButton.frame.size.height/3
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

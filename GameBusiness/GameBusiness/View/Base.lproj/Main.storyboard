@@ -64,14 +64,6 @@
                                     <constraint firstAttribute="bottom" secondItem="aBC-HB-uzA" secondAttribute="bottom" constant="-30" id="dDk-Ux-N4A"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZ2-ia-qmf">
-                                <rect key="frame" x="274" y="559" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Score"/>
-                                <connections>
-                                    <segue destination="I5E-cV-fHU" kind="presentation" id="J0c-un-m5L"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.46986213571652286" green="0.66702127029363922" blue="0.66763166243654815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -82,6 +74,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="515-Xk-kzT"/>
                     </view>
+                    <connections>
+                        <outlet property="apoiarButton" destination="zVu-fT-HVe" id="CTa-8h-Uys"/>
+                        <outlet property="jogarButton" destination="7P8-kZ-yms" id="ghy-Pt-adw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTV-sv-SQs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,29 +104,29 @@
             <objects>
                 <viewController id="I5E-cV-fHU" customClass="ScoreViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmO-sX-Mvq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ean-Vn-VLw">
-                                <rect key="frame" x="30" y="20" width="77" height="64"/>
+                                <rect key="frame" x="30" y="20" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.5490196078431373" green="0.76078431372549016" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="6eX-jq-t9H"/>
-                                    <constraint firstAttribute="width" secondItem="ean-Vn-VLw" secondAttribute="height" multiplier="6:5" id="q1b-N1-RLe"/>
+                                    <constraint firstAttribute="width" secondItem="ean-Vn-VLw" secondAttribute="height" multiplier="1:1" id="q1b-N1-RLe"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="house" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZH-4Y-BCG" userLabel="BotoesInferior">
-                                <rect key="frame" x="30" y="563" width="315" height="64"/>
+                                <rect key="frame" x="30" y="583" width="315" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYw-DJ-nPC" userLabel="Prox">
-                                        <rect key="frame" x="217.5" y="0.0" width="77" height="64"/>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYw-DJ-nPC" userLabel="Prox">
+                                        <rect key="frame" x="251" y="0.0" width="64" height="64"/>
                                         <color key="backgroundColor" red="0.5490196078431373" green="0.76078431372549016" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="kYw-DJ-nPC" secondAttribute="height" multiplier="6:5" id="dwY-Fn-DW6"/>
+                                            <constraint firstAttribute="width" secondItem="kYw-DJ-nPC" secondAttribute="height" multiplier="1:1" id="dwY-Fn-DW6"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="0.89752782534246578" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.right.circle" catalog="system">
@@ -138,10 +134,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Q6-9b0" userLabel="Anterior">
-                                        <rect key="frame" x="20.5" y="0.0" width="77" height="64"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                         <color key="backgroundColor" red="0.5490196078431373" green="0.76078431372549016" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="zKt-Q6-9b0" secondAttribute="height" multiplier="6:5" id="0Gf-z0-2vr"/>
+                                            <constraint firstAttribute="width" secondItem="zKt-Q6-9b0" secondAttribute="height" multiplier="1:1" id="0Gf-z0-2vr"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="0.90389554794520544" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.uturn.left.circle" catalog="system">
@@ -149,7 +145,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3c-8u-9Ok" userLabel="Reward">
-                                        <rect key="frame" x="117.5" y="0.0" width="80" height="64"/>
+                                        <rect key="frame" x="84" y="0.0" width="147" height="64"/>
                                         <color key="backgroundColor" red="0.58012890819999996" green="0.82869678739999997" blue="0.79942357539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="194" id="1Wt-Ce-QeV"/>
@@ -168,9 +164,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kYw-DJ-nPC" firstAttribute="leading" secondItem="N3c-8u-9Ok" secondAttribute="trailing" constant="20" id="2If-Yk-7OC"/>
-                                    <constraint firstItem="zKt-Q6-9b0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EZH-4Y-BCG" secondAttribute="leading" id="4Wk-Gg-Gqa"/>
+                                    <constraint firstItem="zKt-Q6-9b0" firstAttribute="leading" secondItem="EZH-4Y-BCG" secondAttribute="leading" id="4Wk-Gg-Gqa"/>
                                     <constraint firstItem="zKt-Q6-9b0" firstAttribute="centerY" secondItem="N3c-8u-9Ok" secondAttribute="centerY" id="8qe-Iu-07O"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kYw-DJ-nPC" secondAttribute="trailing" id="AhF-5j-awe"/>
+                                    <constraint firstAttribute="trailing" secondItem="kYw-DJ-nPC" secondAttribute="trailing" id="AhF-5j-awe"/>
                                     <constraint firstItem="N3c-8u-9Ok" firstAttribute="height" secondItem="zKt-Q6-9b0" secondAttribute="height" id="Csc-FI-eYp"/>
                                     <constraint firstItem="kYw-DJ-nPC" firstAttribute="height" secondItem="N3c-8u-9Ok" secondAttribute="height" id="Ogp-rA-RdT"/>
                                     <constraint firstItem="N3c-8u-9Ok" firstAttribute="leading" secondItem="zKt-Q6-9b0" secondAttribute="trailing" constant="20" id="Rrw-oM-HUT"/>
@@ -220,6 +216,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YhR-xh-Hk2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ghX-bc-QuO"/>
+                    <connections>
+                        <outlet property="doublePointsButton" destination="N3c-8u-9Ok" id="CRC-r7-qR4"/>
+                        <outlet property="homeButton" destination="ean-Vn-VLw" id="Xqz-Gp-fo9"/>
+                        <outlet property="nextLevelButton" destination="kYw-DJ-nPC" id="XAj-iK-R2a"/>
+                        <outlet property="playAgainButton" destination="zKt-Q6-9b0" id="Veq-Zh-SsN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaP-1h-xln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,13 +11,32 @@ import GoogleMobileAds
 
 class ScoreViewController: UIViewController, GADRewardedAdDelegate {
 
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var doublePointsButton: UIButton!
+    @IBOutlet weak var nextLevelButton: UIButton!
+    
     /// The rewarded video ad.
     var rewardedAd: GADRewardedAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        arredondaBotoes()
         rewardedAd = createAndLoadRewardedAd()
+    }
+    
+    func arredondaBotoes() {
+        
+        homeButton.clipsToBounds = true
+        playAgainButton.clipsToBounds = true
+        doublePointsButton.clipsToBounds = true
+        nextLevelButton.clipsToBounds = true
+        
+        homeButton.layer.cornerRadius = homeButton.frame.size.height/3
+        playAgainButton.layer.cornerRadius = playAgainButton.frame.size.height/3
+        doublePointsButton.layer.cornerRadius = doublePointsButton.frame.size.height/3
+        nextLevelButton.layer.cornerRadius = nextLevelButton.frame.size.height/3
     }
     
     @IBAction func rewardedAdAction(_ sender: Any) {
