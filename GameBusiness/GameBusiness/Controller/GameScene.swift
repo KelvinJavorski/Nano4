@@ -10,27 +10,23 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    weak var viewController : GameViewController?
+    
     var currentPhase : Phase!
     var handle : SKSpriteNode!
-    var height : CGFloat!
-    var width : CGFloat!
     
     var background : SKSpriteNode!
-    var pointsLabel : SKLabelNode!
     
     var stepsManager : StepsManager!
-
-    var reset : SKLabelNode!
     var gameIsPaused : Bool = false
     var lastTime: TimeInterval = TimeInterval(0)
+    var lastPauseState: Bool = false
         
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    override func sceneDidLoad() {
+    override func didMove(to view: SKView) {
         stepsManager = StepsManager(scene: self)
-        height = self.scene?.size.height
-        width = self.scene?.size.width
         currentPhase = Model.shared.phases[0]
         background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -40,26 +36,30 @@ class GameScene: SKScene {
         initPhase()
     }
     
+//    override func sceneDidLoad() {
+//        stepsManager = StepsManager(scene: self)
+//        currentPhase = Model.shared.phases[0]
+//        background = SKSpriteNode(imageNamed: "background")
+//        background.size = self.size
+//        background.position = CGPoint(x: 0, y: 0)
+//        background.zPosition = -10
+//        addChild(background)
+//        initPhase()
+//    }
+    
     func initPhase(){
-        pointsLabel = SKLabelNode(text: "0")
-        pointsLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
-        pointsLabel.fontSize = 50
-        print(frame.maxY)
-        addChild(pointsLabel)
-        
-        resetButton()
-        
         stepsManager.stepsAvailable.append(currentPhase.steps[0])
     }
     
-    func resetButton(){
-        reset = childNode(withName: "reset") as? SKLabelNode
-        reset.color = UIColor.red
-        reset.fontSize = 50
-        reset.name = "pause"
-    }
-    
     override func update(_ currentTime: TimeInterval) {
+        if lastPauseState != gameIsPaused{
+            if gameIsPaused{
+                Model.shared.audioPlayer.pause()
+            }
+            else{
+                Model.shared.audioPlayer.play()
+            }
+        }
         if !gameIsPaused{
             if lastTime == 0{
                lastTime = currentTime
@@ -75,6 +75,8 @@ class GameScene: SKScene {
             
             stepsManager.update(deltaTime: deltaTime, phase: currentPhase)
         }
+        
+        lastPauseState = gameIsPaused
         
     }
     
@@ -100,27 +102,18 @@ class GameScene: SKScene {
                 if step.circle != nil{
                     if step.circle.isPointable && !gameIsPaused{
                         Model.shared.acumulatedPoints += 1
-                        pointsLabel.text = String(Model.shared.acumulatedPoints)
+                        viewController?.scoreLabel.text = "Score: \(Model.shared.acumulatedPoints)"
                         step.circle.isPointable = false
                         step.circle.isReducing = true
                     }
                 }
-//                self.drag(node: handle)
             }
         }
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if handle != nil{
-            if self.handle.name == "bubble"{
-//                self.handle.position = pos
-            }
-        }
-    }
+    func touchMoved(toPoint pos : CGPoint) {}
     
-    func touchUp(atPoint pos : CGPoint) {
-        
-    }
+    func touchUp(atPoint pos : CGPoint) {}
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self))}
@@ -142,15 +135,6 @@ class GameScene: SKScene {
                         step.circle.isPointable = false
                         step.circle.node.removeFromParent()
                     }
-                }
-            }
-            if node.name == "pause"{
-                print("foi")
-                gameIsPaused = !gameIsPaused
-                if (gameIsPaused){
-                    Model.shared.audioPlayer.pause()
-                }else{
-                    Model.shared.audioPlayer.play()
                 }
             }
         }
