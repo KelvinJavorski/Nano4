@@ -59,11 +59,6 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     @IBAction func backToMainMenu(_ sender: Any) {
-        if (currentGame?.stepsManager.addAd)!{
-            showAd()
-           currentGame?.stepsManager.addAd = false
-        }
-//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         self.navigationController?.popViewController(animated: false)
 
         

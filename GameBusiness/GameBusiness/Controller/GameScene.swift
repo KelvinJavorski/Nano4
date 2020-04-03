@@ -69,9 +69,8 @@ class GameScene: SKScene {
         lastPauseState = gameIsPaused
         
         if stepsManager.addAd{
-            stepsManager.addAd = true
-            viewController?.pauseGame(true)
-            viewController?.pauseButton.isHidden = true
+            stepsManager.addAd = false
+            viewController?.performSegue(withIdentifier: "placarSegue", sender: true)
             self.isPaused = true
         }
         
