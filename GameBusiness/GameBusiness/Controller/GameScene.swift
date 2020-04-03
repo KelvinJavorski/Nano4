@@ -14,7 +14,7 @@ class GameScene: SKScene {
     
     var currentPhase : Phase!
     var handle : SKSpriteNode!
-    
+    var teste = 1.0
     var background : SKSpriteNode!
     
     var stepsManager : StepsManager!
@@ -26,6 +26,7 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
+        Model.shared.audioPlayer.pause()
         stepsManager = StepsManager(scene: self)
         currentPhase = Model.shared.phases[0]
         background = SKSpriteNode(imageNamed: "background")
@@ -35,17 +36,6 @@ class GameScene: SKScene {
         addChild(background)
         initPhase()
     }
-    
-//    override func sceneDidLoad() {
-//        stepsManager = StepsManager(scene: self)
-//        currentPhase = Model.shared.phases[0]
-//        background = SKSpriteNode(imageNamed: "background")
-//        background.size = self.size
-//        background.position = CGPoint(x: 0, y: 0)
-//        background.zPosition = -10
-//        addChild(background)
-//        initPhase()
-//    }
     
     func initPhase(){
         stepsManager.stepsAvailable.append(currentPhase.steps[0])
@@ -77,6 +67,13 @@ class GameScene: SKScene {
         }
         
         lastPauseState = gameIsPaused
+        
+        if stepsManager.addAd{
+            stepsManager.addAd = true
+            viewController?.pauseGame(true)
+            viewController?.pauseButton.isHidden = true
+            self.isPaused = true
+        }
         
     }
     

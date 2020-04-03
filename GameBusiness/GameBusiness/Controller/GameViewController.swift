@@ -19,6 +19,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     var currentGame: GameScene?
     @IBOutlet weak var menuInicial: UIButton!
     @IBOutlet weak var modalView: UIView!
+    @IBOutlet weak var pauseButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -58,8 +59,13 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     @IBAction func backToMainMenu(_ sender: Any) {
+        if (currentGame?.stepsManager.addAd)!{
+            showAd()
+           currentGame?.stepsManager.addAd = false
+        }
+//        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         self.navigationController?.popViewController(animated: false)
-            self.performSegue(withIdentifier: "menuSegue", sender: sender)
+
         
     }
     override var shouldAutorotate: Bool {
