@@ -58,7 +58,6 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func playMusic(_ sender: Any) {
-        Model.shared.audioPlayer.play()
     }
 
 }
