@@ -17,7 +17,7 @@ class StepsManager{
     var numberOfStepsAvailable: Int = 0
     var stepsAvailable: [Step] = [Step]()
     var scene : GameScene!
-    var addAd : Bool = false
+    var gameEnded : Bool = false
     var lastStep : Int!
     
     func nextBubble(step : Step, phase: Phase){
@@ -32,6 +32,7 @@ class StepsManager{
         for index in 0 ... stepsAvailable.count - 1{
             let step = stepsAvailable[index]
             step.update(deltaTime: deltaTime)
+            
             if (!step.isInterval){
                 if step.addBubble{
                     nextBubble(step: step, phase: phase)
@@ -41,6 +42,7 @@ class StepsManager{
                     numberOfStepsAvailable += 1
                     step.createNewStep = false
                 }
+                step.bubble.update(deltaTime: deltaTime)
                 step.circle.update(deltaTime: deltaTime)
             }
             else{
@@ -54,11 +56,18 @@ class StepsManager{
         if numberOfStepsAvailable > stepsAvailable.count - 1 && numberOfStepsAvailable < phase.steps.count{
             stepsAvailable.append(phase.steps[numberOfStepsAvailable])
         }
-        else if numberOfStepsAvailable >= lastStep && stepsAvailable[lastStep].circle.finished{
-            addAd = true
+        else if numberOfStepsAvailable >= lastStep{
+            let step = stepsAvailable[lastStep]
+            
+            if !step.isInterval{
+                if step.circle.finished{
+                    gameEnded = true
+                }
+                
+            }
+            else if step.isFinished{
+                gameEnded = true
+            }
         }
-        
-        
-        
     }
 }

@@ -21,12 +21,14 @@ class GameScene: SKScene {
     var gameIsPaused : Bool = false
     var lastTime: TimeInterval = TimeInterval(0)
     var lastPauseState: Bool = false
+    var points: Int16 = 0
         
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        Model.shared.audioPlayer.pause()
+        Model.shared.loadPhases()
+        
         stepsManager = StepsManager(scene: self)
         currentPhase = Model.shared.phases[0]
         background = SKSpriteNode(imageNamed: "background")
@@ -38,6 +40,7 @@ class GameScene: SKScene {
     }
     
     func initPhase(){
+        
         stepsManager.stepsAvailable.append(currentPhase.steps[0])
     }
     
@@ -68,8 +71,10 @@ class GameScene: SKScene {
         
         lastPauseState = gameIsPaused
         
-        if stepsManager.addAd{
-            stepsManager.addAd = false
+        if stepsManager.gameEnded{
+            stepsManager.gameEnded = false
+            Model.shared.audioPlayer.stop()
+            Model.shared.points = points
             viewController?.performSegue(withIdentifier: "placarSegue", sender: true)
             self.isPaused = true
         }
@@ -97,8 +102,9 @@ class GameScene: SKScene {
                 let step = searchClickedBubble(pos: pos)
                 if step.circle != nil{
                     if step.circle.isPointable && !gameIsPaused{
-                        Model.shared.acumulatedPoints += 1
-                        viewController?.scoreLabel.text = "Score: \(Model.shared.acumulatedPoints)"
+                        points += 1
+//                        Model.shared.acumulatedPoints += 1
+                        viewController?.scoreLabel.text = "Score: \(points)"
                         step.circle.isPointable = false
                         step.circle.isReducing = true
                     }

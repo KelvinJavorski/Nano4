@@ -59,7 +59,8 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     @IBAction func backToMainMenu(_ sender: Any) {
-        self.navigationController?.popViewController(animated: false)
+        self.dismiss(animated: false, completion: nil)
+//        self.navigationController?.popViewController(animated: false)
 
         
     }

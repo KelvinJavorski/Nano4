@@ -73,6 +73,7 @@ class Step {
         let bubble = Bubble(scene: scene, node: SKSpriteNode(imageNamed: "bubble"))
         bubble.node.name = "bubble"
         bubble.node.position = fixedPosition
+        bubble.configurePhysics()
         scene.addChild(bubble.node)
         
         self.bubble = bubble

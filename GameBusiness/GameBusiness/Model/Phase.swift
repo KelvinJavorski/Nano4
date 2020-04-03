@@ -19,7 +19,4 @@ class Phase {
     var music: String!
     var steps: [Step]!
     
-    var currentStep: Step!
-    var lastStep: Step!
-    
 }

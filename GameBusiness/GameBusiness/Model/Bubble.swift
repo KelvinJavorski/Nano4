@@ -29,6 +29,11 @@ class Bubble : GameObject {
             body.contactTestBitMask = ContactMask.button.rawValue
             self.node.zPosition = 3
         }
+        node.alpha = 0
+    }
+    
+    func update(deltaTime: TimeInterval){
+        node.alpha += 0.02
     }
     
     func explodeBubble(){

@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjy-mJ-hih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="834.33283358320841"/>
+            <point key="canvasLocation" x="196" y="901"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -181,7 +181,9 @@
                                         </state>
                                         <connections>
                                             <action selector="backToMainMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CVy-ct-OuS"/>
-                                            <segue destination="cxa-O4-5W1" kind="presentation" id="TkN-y8-69E"/>
+                                            <segue destination="cxa-O4-5W1" kind="popoverPresentation" popoverAnchorView="c2E-o5-r1o" id="TkN-y8-69E">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -217,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077.5999999999999" y="115.59220389805098"/>
+            <point key="canvasLocation" x="1092" y="114"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="78f-cQ-y1E">
@@ -354,12 +356,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaP-1h-xln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="120.08995502248877"/>
+            <point key="canvasLocation" x="1938" y="114"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Bh-bt-mfg"/>
-        <segue reference="2ZZ-1Q-i1Y"/>
+        <segue reference="I1o-Yn-LPO"/>
+        <segue reference="TkN-y8-69E"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>

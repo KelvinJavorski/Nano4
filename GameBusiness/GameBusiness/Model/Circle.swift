@@ -57,8 +57,10 @@ class Circle{
         let height = bubble.node.size.height
         let radius = ((height - 1 ) / 2)
         let circle = SKShapeNode(circleOfRadius: radius * 2.5)
-        circle.strokeColor = UIColor.white
-        circle.lineWidth = 5
+//        circle.strokeColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.2)
+        circle.strokeColor = UIColor.red
+        circle.alpha = 0.1
+        circle.lineWidth = 2
         circle.zPosition = -1
         circle.position = bubble.node.position
         
@@ -75,6 +77,7 @@ class Circle{
     
     func reduce(deltaTime: TimeInterval){
         reduceCurrentTime += deltaTime
+        node.alpha += 0.01
 //        let increaseVelocity = 0.5 / reduceDuration
 //        let increaseAmount : CGFloat = CGFloat(deltaTime * increaseVelocity)
         
@@ -82,7 +85,12 @@ class Circle{
         var parcial = CGFloat(reduceCurrentTime / reduceDuration)
         if parcial >= 0.6 && parcial <= 1{
             isPointable = true
+            node.lineWidth = 10
             node.strokeColor = UIColor.green
+//            node.strokeColor = Model.shared.hexStringToUIColor(hex: "9ADD81")
+//            node.strokeColor = Model.shared.hexStringToUIColor(hex: "6ADD81")
+//            6ADD81
+            node.alpha = 1
         }
         if parcial >= 1{
             parcial = 1
@@ -90,7 +98,6 @@ class Circle{
             isReducing = false
             isIncreasing = true
             isPointable = false
-            Model.shared.points += 1
         }
 //
 //        var tempo = 120.0 // seg
