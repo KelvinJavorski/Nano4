@@ -66,8 +66,8 @@ class Step {
     }
     
     func createBubble(scene: GameScene!){
-        let usufulHeight = (scene.height - 100) / 200
-        let usufulWidth = (scene.width - 100 ) / 200
+        let usufulHeight = (scene.size.height - 100) / 200
+        let usufulWidth = (scene.size.width - 100 ) / 200
         let fixedPosition = CGPoint(x: self.position0.x * usufulWidth, y: self.position1.y * usufulHeight)
 
         let bubble = Bubble(scene: scene, node: SKSpriteNode(imageNamed: "bubble"))
