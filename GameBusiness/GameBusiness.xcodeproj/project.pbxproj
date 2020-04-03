@@ -15,7 +15,6 @@
 		42E383FD2422D77F00064794 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E383FC2422D77F00064794 /* MenuViewController.swift */; };
 		489254160292D0D7E68E856C /* Pods_GameBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D77256DB11A8A0AA9804234 /* Pods_GameBusiness.framework */; };
 		B6061B9324195C04002DC707 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6061B9224195C04002DC707 /* SnowParticle.sks */; };
-		B6061B98241977CD002DC707 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B97241977CD002DC707 /* Tunnel.swift */; };
 		B6061B9A241AA7E4002DC707 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B99241AA7E3002DC707 /* CGPoint+Extensions.swift */; };
 		B6061B9C241AA7EA002DC707 /* OperatorsOverloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B9B241AA7EA002DC707 /* OperatorsOverloading.swift */; };
 		B6061B9E2422E839002DC707 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6061B9D2422E839002DC707 /* Circle.swift */; };
@@ -30,6 +29,7 @@
 		B67FA7C62412D6DA00E99DB9 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C52412D6DA00E99DB9 /* Bubble.swift */; };
 		B67FA7C82412DA7100E99DB9 /* ContactMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C72412DA7100E99DB9 /* ContactMask.swift */; };
 		B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FA7C92412DAFD00E99DB9 /* GameObject.swift */; };
+		B6AD5B4F24376F8800DB017E /* StepsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD5B4E24376F8800DB017E /* StepsManager.swift */; };
 		B6C1FDFA2432461000003642 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1FDF92432461000003642 /* Step.swift */; };
 		B6C1FDFC2433882900003642 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C1FDFB2433882900003642 /* AVFoundation.framework */; };
 		B6C1FDFF243388A500003642 /* Neon_Storm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6C1FDFE243388A500003642 /* Neon_Storm.mp3 */; };
@@ -50,7 +50,6 @@
 		42E383FC2422D77F00064794 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8D63C20A592EEBB500B590A8 /* Pods-GameBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBusiness.release.xcconfig"; path = "Target Support Files/Pods-GameBusiness/Pods-GameBusiness.release.xcconfig"; sourceTree = "<group>"; };
 		B6061B9224195C04002DC707 /* SnowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle.sks; sourceTree = "<group>"; };
-		B6061B97241977CD002DC707 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		B6061B99241AA7E3002DC707 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		B6061B9B241AA7EA002DC707 /* OperatorsOverloading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsOverloading.swift; sourceTree = "<group>"; };
 		B6061B9D2422E839002DC707 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		B67FA7C52412D6DA00E99DB9 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		B67FA7C72412DA7100E99DB9 /* ContactMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMask.swift; sourceTree = "<group>"; };
 		B67FA7C92412DAFD00E99DB9 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		B6AD5B4E24376F8800DB017E /* StepsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsManager.swift; sourceTree = "<group>"; };
 		B6C1FDF92432461000003642 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		B6C1FDFB2433882900003642 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B6C1FDFE243388A500003642 /* Neon_Storm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Neon_Storm.mp3; path = GameBusiness/View/Assets.xcassets/Neon_Storm.dataset/Neon_Storm.mp3; sourceTree = SOURCE_ROOT; };
@@ -94,9 +94,9 @@
 				4256E787241972CF00BC72D7 /* Phase.swift */,
 				B67FA7C92412DAFD00E99DB9 /* GameObject.swift */,
 				B67FA7C52412D6DA00E99DB9 /* Bubble.swift */,
-				B6061B97241977CD002DC707 /* Tunnel.swift */,
 				B6061B9D2422E839002DC707 /* Circle.swift */,
 				B6C1FDF92432461000003642 /* Step.swift */,
+				B6AD5B4E24376F8800DB017E /* StepsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,12 +330,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B67FA7AC240ED6EC00E99DB9 /* GameScene.swift in Sources */,
-				B6061B98241977CD002DC707 /* Tunnel.swift in Sources */,
 				B67FA7AE240ED6EC00E99DB9 /* GameViewController.swift in Sources */,
 				B6C1FDFA2432461000003642 /* Step.swift in Sources */,
 				4256E789241972CF00BC72D7 /* Phase.swift in Sources */,
 				B67FA7CA2412DAFD00E99DB9 /* GameObject.swift in Sources */,
 				B6061B9E2422E839002DC707 /* Circle.swift in Sources */,
+				B6AD5B4F24376F8800DB017E /* StepsManager.swift in Sources */,
 				4294E821242E714800CD1971 /* ScoreViewController.swift in Sources */,
 				B67FA7A6240ED6EC00E99DB9 /* AppDelegate.swift in Sources */,
 				B6061B9A241AA7E4002DC707 /* CGPoint+Extensions.swift in Sources */,

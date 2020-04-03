@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-let PHASES_VEL = CGFloat(3)
+let PHASES_VEL = CGFloat(2.4)
 
 class Model {
     
