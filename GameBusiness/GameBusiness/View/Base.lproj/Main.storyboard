@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cxa-O4-5W1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cxa-O4-5W1">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Menu Inicial-->
         <scene sceneID="xdt-2V-bC1">
             <objects>
-                <viewController storyboardIdentifier="MenuInicial" title="Menu Inicial" id="cxa-O4-5W1" customClass="MenuViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuInicial" title="Menu Inicial" modalPresentationStyle="overCurrentContext" id="cxa-O4-5W1" customClass="MenuViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4S-Xs-2Nx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                                 <state key="normal" title="Play" backgroundImage="background"/>
                                                 <connections>
                                                     <action selector="playMusic:" destination="cxa-O4-5W1" eventType="touchUpInside" id="14r-BT-OuI"/>
-                                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="ShowModalView" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="I1o-Yn-LPO"/>
+                                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="ShowModalView" modalPresentationStyle="overCurrentContext" modalTransitionStyle="flipHorizontal" id="I1o-Yn-LPO"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVu-fT-HVe">
@@ -95,7 +95,6 @@
         <!--View Controller-->
         <scene sceneID="yyA-Bt-jwS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vjy-mJ-hih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="SQ2-Qj-KBY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfm-b1-sRg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -138,29 +137,85 @@
                     </view>
                     <navigationItem key="navigationItem" id="HCY-GN-0wz"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjy-mJ-hih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-743.20000000000005" y="834.33283358320841"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="BV1-FR-VrT" customClass="GameViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQS-ys-nMF">
+                                <rect key="frame" x="16" y="18" width="122" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-dg-eSn">
+                                <rect key="frame" x="254" y="11" width="105" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bLF-dg-eSn" secondAttribute="height" multiplier="35:18" id="Id7-ms-0dj"/>
+                                    <constraint firstAttribute="width" constant="105" id="XIG-J7-gab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Pause" backgroundImage="background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="h62-9A-YzD"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-ef-aP3">
+                                <rect key="frame" x="0.0" y="131" width="375" height="470"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-o5-r1o">
+                                        <rect key="frame" x="100" y="209" width="174" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Menu Inicial">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backToMainMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CVy-ct-OuS"/>
+                                            <segue destination="cxa-O4-5W1" kind="presentation" identifier="menuSegue" modalPresentationStyle="overCurrentContext" id="D4f-Ew-b8i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.38431372549999998" green="0.92941176469999998" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="bLF-dg-eSn" secondAttribute="trailing" constant="16" id="5Lm-5L-ciw"/>
+                            <constraint firstItem="bLF-dg-eSn" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="11" id="EQc-Pb-QUx"/>
+                            <constraint firstItem="Eed-ef-aP3" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="QFK-tH-EsF"/>
+                            <constraint firstItem="yQS-ys-nMF" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="16" id="UXL-pq-Ld7"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="Eed-ef-aP3" secondAttribute="bottom" constant="66" id="Uum-Mk-YsB"/>
+                            <constraint firstItem="yQS-ys-nMF" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="18" id="YuE-of-99z"/>
+                            <constraint firstItem="Eed-ef-aP3" firstAttribute="top" secondItem="bLF-dg-eSn" secondAttribute="bottom" constant="66" id="tkb-u8-VGq"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="Eed-ef-aP3" secondAttribute="trailing" id="zo2-BK-zc0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <navigationItem key="navigationItem" id="67f-1A-cDe"/>
+                    <connections>
+                        <outlet property="menuInicial" destination="c2E-o5-r1o" id="5tv-2V-1fL"/>
+                        <outlet property="modalView" destination="Eed-ef-aP3" id="zYg-qA-dPJ"/>
+                        <outlet property="scoreLabel" destination="yQS-ys-nMF" id="mwZ-lA-mti"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="116"/>
+            <point key="canvasLocation" x="138.40000000000001" y="115.59220389805098"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="78f-cQ-y1E">
             <objects>
-                <viewController id="I5E-cV-fHU" customClass="ScoreViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="I5E-cV-fHU" customClass="ScoreViewController" customModule="BubbleDance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmO-sX-Mvq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,14 +350,15 @@
             <point key="canvasLocation" x="985.50724637681162" y="120.53571428571428"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.counterclockwise.circle" catalog="system" width="64" height="60"/>
-        <image name="arrow.right.circle" catalog="system" width="64" height="60"/>
-        <image name="background" width="414" height="896"/>
-        <image name="house" catalog="system" width="64" height="54"/>
-        <image name="video" catalog="system" width="64" height="40"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="I1o-Yn-LPO"/>
+        <segue reference="D4f-Ew-b8i"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="background" width="414" height="896"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="video" catalog="system" width="128" height="83"/>
+    </resources>
 </document>
