@@ -14,7 +14,12 @@ import GameplayKit
 
 class GameViewController: UIViewController, GADInterstitialDelegate {
     
+    @IBOutlet weak var scoreLabel: UILabel!
     var interstitial: GADInterstitial!
+    var currentGame: GameScene?
+    @IBOutlet weak var menuInicial: UIButton!
+    @IBOutlet weak var modalView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,9 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
                 
                 // Present the scene
                 view.presentScene(scene)
+                
+                currentGame = scene as? GameScene
+                currentGame?.viewController = self
             }
             
             view.ignoresSiblingOrder = true
@@ -37,6 +45,23 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         }
     }
     
+    @IBAction func pauseGame(_ sender: Any) {
+        currentGame?.gameIsPaused = !currentGame!.gameIsPaused
+        if currentGame!.gameIsPaused{
+            modalView.isHidden = false
+            menuInicial.isHidden = false
+        }else{
+            modalView.isHidden = true
+            menuInicial.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func backToMainMenu(_ sender: Any) {
+        self.navigationController?.popViewController(animated: false)
+            self.performSegue(withIdentifier: "menuSegue", sender: sender)
+        
+    }
     override var shouldAutorotate: Bool {
         return true
     }
