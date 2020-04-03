@@ -110,6 +110,8 @@ class Circle{
             parcial = 1
             increaseCurrentTime = 0
             isIncreasing = false
+            finished = true
+            
             node.strokeColor = UIColor.white
         }
         

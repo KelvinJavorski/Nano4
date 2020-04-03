@@ -33,319 +33,318 @@ class Model {
                  s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
             Step(s0: CGPoint(x: -10.0, y: -90.0 ),
                  s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
             Step(s0: CGPoint(x: -30.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -10.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 00.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
-                 s1: CGPoint(x: 0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
-                 s1: CGPoint(x: -0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
-                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
-                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
-                 s1: CGPoint(x: 0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
-                 s1: CGPoint(x: -0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
-                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
-                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
-                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
-                 s1: CGPoint(x: 0.0, y: -90.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
-                 s1: CGPoint(x: -0.0, y: -90.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
-                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
-                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
-                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
-                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
-                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
-                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
-                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
-                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            
-            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
-                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
-            Step(TimeInterval(interval))
+                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL))
+            
+//            Step(s0: CGPoint(x: -10.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 00.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
+//                 s1: CGPoint(x: 0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
+//                 s1: CGPoint(x: -0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
+//                 s1: CGPoint(x: 0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
+//                 s1: CGPoint(x: -0.0, y: -80.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -80.0 ),
+//                 s1: CGPoint(x: -40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -50.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 30.0 ),
+//                 s1: CGPoint(x: 0.0, y: -90.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 30.0 ),
+//                 s1: CGPoint(x: -0.0, y: -90.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 66.0, y: 70.0 ),
+//                 s1: CGPoint(x: 66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -66.0, y: 70.0 ),
+//                 s1: CGPoint(x: -66.0, y: -50.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 33.0, y: 50.0 ),
+//                 s1: CGPoint(x: 33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -33.0, y: 50.0 ),
+//                 s1: CGPoint(x: -33.0, y: -70.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -80.0 ),
+//                 s1: CGPoint(x: 40.0, y: -20.0 ), TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 50.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -60.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: 70.0 ),
+//                 s1: CGPoint(x: -20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: 70.0 ),
+//                 s1: CGPoint(x: 20.0, y: -20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: 80.0, y: -70.0 ),
+//                 s1: CGPoint(x: -20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//
+//            Step(s0: CGPoint(x: -80.0, y: -70.0 ),
+//                 s1: CGPoint(x: 20.0, y: 20.0 ),TimeInterval(2.0000/PHASES_VEL)),
+//            Step(TimeInterval(interval))
         ]
         )
     ]
