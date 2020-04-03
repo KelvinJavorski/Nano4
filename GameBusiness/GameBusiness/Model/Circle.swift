@@ -56,7 +56,7 @@ class Circle{
     private func setupNode(){
         let height = bubble.node.size.height
         let radius = ((height - 1 ) / 2)
-        let circle = SKShapeNode(circleOfRadius: radius * 2)
+        let circle = SKShapeNode(circleOfRadius: radius * 2.5)
         circle.strokeColor = UIColor.white
         circle.lineWidth = 5
         circle.zPosition = -1
@@ -69,7 +69,7 @@ class Circle{
     }
     
     private func setupInterval(){
-        reduceDuration = duration * 0.97
+        reduceDuration = duration * 0.90
         increaseDuration = duration * 0.1
     }
     
@@ -98,7 +98,7 @@ class Circle{
 //        var deslocamento = deltaTime * velocidade
 //        var tamanho -= deslocamento
         
-        let scale : CGFloat = 0.5
+        let scale : CGFloat = 0.45
         node.setScale(node.xScale - scale * CGFloat(deltaTime))
     }
     

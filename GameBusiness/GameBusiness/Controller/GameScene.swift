@@ -10,30 +10,23 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    var bubbles : [Bubble] = [Bubble]()
-    var circles: [Circle] = [Circle]()
+    weak var viewController : GameViewController?
+    
     var currentPhase : Phase!
-    var tunnel : Tunnel!
     var handle : SKSpriteNode!
-    var height : CGFloat!
-    var width : CGFloat!
     
     var background : SKSpriteNode!
-    var pointsLabel : SKLabelNode!
     
-    var id: Int = 0
-    var currentSteps: [Step] = [Step]()
-
-    var stepsCreated : Int = 0
-    var reset : SKLabelNode!
+    var stepsManager : StepsManager!
+    var gameIsPaused : Bool = false
     var lastTime: TimeInterval = TimeInterval(0)
+    var lastPauseState: Bool = false
         
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    override func sceneDidLoad() {
-        height = self.scene?.size.height
-        width = self.scene?.size.width
+    override func didMove(to view: SKView) {
+        stepsManager = StepsManager(scene: self)
         currentPhase = Model.shared.phases[0]
         background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -43,98 +36,56 @@ class GameScene: SKScene {
         initPhase()
     }
     
+//    override func sceneDidLoad() {
+//        stepsManager = StepsManager(scene: self)
+//        currentPhase = Model.shared.phases[0]
+//        background = SKSpriteNode(imageNamed: "background")
+//        background.size = self.size
+//        background.position = CGPoint(x: 0, y: 0)
+//        background.zPosition = -10
+//        addChild(background)
+//        initPhase()
+//    }
+    
     func initPhase(){
-        pointsLabel = SKLabelNode(text: "0")
-        pointsLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 200)
-        pointsLabel.fontSize = 50
-        print(frame.maxY)
-        addChild(pointsLabel)
-        
-        resetButton()
-        currentSteps.append(currentPhase.steps[0])
+        stepsManager.stepsAvailable.append(currentPhase.steps[0])
     }
-    
-    func resetButton(){
-        reset = childNode(withName: "reset") as? SKLabelNode
-        reset.color = UIColor.red
-        reset.name = "reset"
-    }
-    
-    func createBubble(position : CGPoint, isFixed: Bool) -> Bubble{
-        let usufulHeight = (self.height - 100) / 200
-        let usufulWidth = (self.width - 100 ) / 200
-        let fixedPosition = CGPoint(x: position.x * usufulWidth, y: position.y * usufulHeight)
-
-        let bubble = Bubble(scene: self, node: SKSpriteNode(imageNamed: "bubble"))
-        if isFixed{
-            bubble.node.name = "fixedBubble"
-        }else{
-            bubble.node.name = "bubble"
-        }
-        bubble.node.position = fixedPosition
-        self.addChild(bubble.node)
-        return bubble
-    }
-    
-    func buildBubble(step: Step){
-        step.bubble = self.createBubble(position: step.position0, isFixed: false)
-        step.circle = Circle(scene: self, bubble: step.bubble, duration: step.circleDuration)
-    }
-    
-    func nextBubble(step: Step){
-        if stepsCreated < self.currentPhase.steps.count - 1 {
-            buildBubble(step: step)
-        }
-        
-    }
-    
     
     override func update(_ currentTime: TimeInterval) {
-        if lastTime == 0{
-           lastTime = currentTime
-           return
-        }
-    
-        var deltaTime = currentTime - lastTime
-        lastTime = currentTime
-        
-        if deltaTime > 0.1{
-            deltaTime = 0.1
-        }
-        
-        for index in 0 ... currentSteps.count - 1{
-            let step = currentSteps[index]
-            step.update(deltaTime: deltaTime)
-            if (!step.isInterval){
-                if step.addBubble{
-                    nextBubble(step: step)
-                    step.addBubble = false
-                }
-                else if step.createNewStep{
-                    stepsCreated += 1
-                    step.createNewStep = false
-                }
-                step.circle.update(deltaTime: deltaTime)
+        if lastPauseState != gameIsPaused{
+            if gameIsPaused{
+                Model.shared.audioPlayer.pause()
             }
             else{
-                if step.intervalIsFinished{
-                    stepsCreated += 1
-                    step.intervalIsFinished = false
-                }
+                Model.shared.audioPlayer.play()
             }
         }
+        if !gameIsPaused{
+            if lastTime == 0{
+               lastTime = currentTime
+               return
+            }
         
-        if stepsCreated > currentSteps.count - 1 && stepsCreated < currentPhase.steps.count{
-            currentSteps.append(currentPhase.steps[stepsCreated])
+            var deltaTime = currentTime - lastTime
+            lastTime = currentTime
+            
+            if deltaTime > 0.1{
+                deltaTime = 0.1
+            }
+            
+            stepsManager.update(deltaTime: deltaTime, phase: currentPhase)
         }
+        
+        lastPauseState = gameIsPaused
+        
     }
     
     func searchClickedBubble(pos: CGPoint) -> Step{
         var step: Step!
-        for index in 0 ... currentSteps.count - 1{
-            if !currentSteps[index].isFinished && !currentSteps[index].isInterval{
-                if currentSteps[index].bubble.node.contains(pos){
-                    step = currentSteps[index]
+        for index in 0 ... stepsManager.stepsAvailable.count - 1{
+            if !stepsManager.stepsAvailable[index].isFinished && !stepsManager.stepsAvailable[index].isInterval{
+                if stepsManager.stepsAvailable[index].bubble.node.contains(pos){
+                    step = stepsManager.stepsAvailable[index]
                     return step
                 }
             }
@@ -149,29 +100,20 @@ class GameScene: SKScene {
             if self.handle.name == "bubble"{
                 let step = searchClickedBubble(pos: pos)
                 if step.circle != nil{
-                    if step.circle.isPointable{
+                    if step.circle.isPointable && !gameIsPaused{
                         Model.shared.acumulatedPoints += 1
-                        pointsLabel.text = String(Model.shared.acumulatedPoints)
+                        viewController?.scoreLabel.text = "Score: \(Model.shared.acumulatedPoints)"
                         step.circle.isPointable = false
                         step.circle.isReducing = true
                     }
                 }
-//                self.drag(node: handle)
             }
         }
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if handle != nil{
-            if self.handle.name == "bubble"{
-//                self.handle.position = pos
-            }
-        }
-    }
+    func touchMoved(toPoint pos : CGPoint) {}
     
-    func touchUp(atPoint pos : CGPoint) {
-        
-    }
+    func touchUp(atPoint pos : CGPoint) {}
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self))}
@@ -185,6 +127,7 @@ class GameScene: SKScene {
         if let touch = touches.first {
                 let location = touch.location(in: self)
                 let node = atPoint(location)
+            if !gameIsPaused{
                 if node.name == "bubble" {
                     let step = searchClickedBubble(pos: location)
                     if !step.isFinished{
@@ -193,10 +136,8 @@ class GameScene: SKScene {
                         step.circle.node.removeFromParent()
                     }
                 }
-                else if node.name == "reset"{
-                    
-                }
             }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

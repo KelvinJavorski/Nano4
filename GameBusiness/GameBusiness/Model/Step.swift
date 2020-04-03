@@ -28,9 +28,10 @@ class Step {
     var position1: CGPoint!
     var bubble: Bubble!
     var circle: Circle!
+    var scene: GameScene!
     
     var stepDuration: TimeInterval!
-    var circleDuration: TimeInterval = TimeInterval(1)
+    var circleDuration: TimeInterval = TimeInterval(1.5)
     var currentTime = TimeInterval()
     var nextBubbleCurrentTime = TimeInterval()
     
@@ -62,5 +63,23 @@ class Step {
                 circle.node.removeFromParent()
             }
         }
+    }
+    
+    func createBubble(scene: GameScene!){
+        let usufulHeight = (scene.size.height - 100) / 200
+        let usufulWidth = (scene.size.width - 100 ) / 200
+        let fixedPosition = CGPoint(x: self.position0.x * usufulWidth, y: self.position1.y * usufulHeight)
+
+        let bubble = Bubble(scene: scene, node: SKSpriteNode(imageNamed: "bubble"))
+        bubble.node.name = "bubble"
+        bubble.node.position = fixedPosition
+        scene.addChild(bubble.node)
+        
+        self.bubble = bubble
+    }
+    
+    func createCircle(scene: GameScene!){
+        let circle = Circle(scene: scene, bubble: self.bubble, duration: self.circleDuration)
+        self.circle = circle
     }
 }
