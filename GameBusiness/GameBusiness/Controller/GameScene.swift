@@ -28,7 +28,6 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         Model.shared.loadPhases()
-        Model.shared.audioPlayer.play()
         
         stepsManager = StepsManager(scene: self)
         currentPhase = Model.shared.phases[0]
