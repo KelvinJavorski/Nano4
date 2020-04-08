@@ -86,7 +86,7 @@ class ScoreViewController: UIViewController, GADRewardedAdDelegate {
     
 
     func createAndLoadRewardedAd() -> GADRewardedAd? {
-      rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-2334129422444825/4445249841")
+      rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3788964205286449/7828905169")
       rewardedAd?.load(GADRequest()) { error in
         if let error = error {
           print("Loading failed: \(error)")
