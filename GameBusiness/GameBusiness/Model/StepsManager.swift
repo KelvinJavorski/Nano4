@@ -46,9 +46,14 @@ class StepsManager{
                 step.circle.update(deltaTime: deltaTime)
             }
             else{
-                if step.intervalIsFinished{
+                if !step.stepWasCreated{
                     numberOfStepsAvailable += 1
+                    step.stepWasCreated = true
+                }
+                
+                if step.intervalIsFinished{
                     step.intervalIsFinished = false
+                    Model.shared.audioPlayer.play()
                 }
             }
         }
